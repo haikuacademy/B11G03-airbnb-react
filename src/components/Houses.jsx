@@ -3,7 +3,7 @@ function Houses() {
     /* Adding container to position the content wrap the page */
     <div className="container mx-auto">
       {/* Creating a flexbox for the search function in the page */}
-      <h1 className="bg-blue-200 grid-cols-6 flex justify-between">
+      <h1 className="flex bg-blue-200 justify-between">
         <div class="bg-blue-600">1</div>
         <div class="bg-blue-600">2</div>
         <div class="bg-blue-600">3</div>
