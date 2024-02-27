@@ -12,7 +12,7 @@ function Houses() {
         <div class="bg-blue-600">6</div>
       </h1>
       {/* Creating a Grid for the house listings */}
-      <div className="grid bg-pink-200 grid-cols-5 gap-2">
+      <div className="grid bg-pink-200 grid-cols-5 gap-3">
         <div class="bg-pink-600">1</div>
         <div class="bg-pink-600">2</div>
         <div class="bg-pink-600">3</div>
