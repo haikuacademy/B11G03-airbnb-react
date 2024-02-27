@@ -4,6 +4,7 @@ import Houses from './components/Houses'
 import House from './components/House'
 import HouseEdit from './components/HouseEdit'
 import Listings from './components/Listings'
+import Login from './components/Login'
 
 function Router() {
     return (
@@ -13,6 +14,7 @@ function Router() {
                 <Route path='/houses/:id' element={<House />} />
                 <Route path='/houses/:id/edit' element={<HouseEdit />} />
                 <Route path='/listings' element={<Listings />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
         </BrowserRouter>
     )
