@@ -6,6 +6,7 @@ import Signup from './components/Signup'
 import HouseEdit from './components/HouseEdit'
 import Listings from './components/Listings'
 import Login from './components/Login'
+import Bookings from './components/Bookings'
 
 function Router() {
     return (
@@ -17,6 +18,7 @@ function Router() {
                 <Route path='/houses/:id/edit' element={<HouseEdit />} />
                 <Route path='/listings' element={<Listings />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/bookings' element={<Bookings />} />
             </Routes>
         </BrowserRouter>
     )
