@@ -1,8 +1,10 @@
 import HouseCard from './HouseCard'
+import Nav from './Nav'
 
 function Listings() {
   return (
     <div className="container mx-auto">
+      <Nav />
       {/* Flexbox for new listings */}
       <div className="grid grid-cols-2 gap-20 bg-pink-200">
         <HouseCard />
