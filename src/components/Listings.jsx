@@ -1,6 +1,9 @@
+import Nav from './Nav'
+
 function Listings() {
   return (
     <div className="container mx-auto">
+      <Nav />
       {/* Flexbox for new listings */}
       <div className="grid grid-cols-2 gap-20 bg-pink-200">
         <div className="bg-pink-600">1</div>
