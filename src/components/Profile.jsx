@@ -1,6 +1,9 @@
+import Nav from './Nav'
+
 function Profile() {
   return (
     <div className="container mx-auto">
+      <Nav />
       {/* Flexbox for profile pic and profile url */}
       <div className="flex gap-2 justify-start bg-blue-200">
         <div className="bg-blue-600">1</div>
