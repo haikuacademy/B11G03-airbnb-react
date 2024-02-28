@@ -14,6 +14,8 @@ function House() {
         {/* Booking window */}
         <div class="bg-pink-600">4</div>
       </div>
+
+      {/* Read listing reviews */}
       <div className="grid grid-cols-3 gap-24">
         <div class="col-span-2 bg-blue-200">
           <div className="flex bg-blue-200 gap-2">
@@ -23,29 +25,19 @@ function House() {
             <div class="bg-blue-600">3.2</div>
           </div>
         </div>
-
-        {/*Total price*/}
-        <div class="bg-blue-600">4.1</div>
-        <div className="grid bg-blue-200">
-          {/* Reserve button */}
-          <div class="bg-blue-600">4.2</div>
-        </div>
-      </div>
-
-      {/* Read listing reviews */}
-      <Reviews />
-
-      {/* Last section */}
-      <div className="grid bg-pink-200 grid-cols-3 gap-24">
-        <div class="col-span-2 bg-blue-200">
-          <div className="flex bg-blue-200 gap-2">
-            {/* guest profile photo */}
-            <div class="bg-blue-600">5.1</div>
-            {/* guest name */}
-            <div class="bg-blue-600">5.2</div>
+        {/* flexbox */}
+        <div className="flex bg-blue-200 justify-between">
+          {/*Total price*/}
+          <div class="bg-blue-600">4.1</div>
+          <div className="grid bg-blue-200">
+            {/* Reserve button */}
+            <div class="bg-blue-600">4.2</div>
           </div>
         </div>
       </div>
+
+      {/* import reviews */}
+      <Reviews />
     </div>
   )
 }
