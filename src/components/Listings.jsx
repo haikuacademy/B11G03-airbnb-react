@@ -1,3 +1,4 @@
+import HouseCard from './HouseCard'
 import Nav from './Nav'
 
 function Listings() {
@@ -6,8 +7,8 @@ function Listings() {
       <Nav />
       {/* Flexbox for new listings */}
       <div className="grid grid-cols-2 gap-20 bg-pink-200">
-        <div className="bg-pink-600">1</div>
-        <div className="bg-pink-600">2</div>
+        <HouseCard />
+        <HouseCard />
       </div>
 
       {/* Flexbox to display existing house listings */}
