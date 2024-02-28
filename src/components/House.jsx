@@ -1,8 +1,11 @@
 import Gallery from './Gallery'
+import Nav from './Nav'
+import Reviews from './Reviews'
 
 function House() {
   return (
     <div className="container mx-auto bg-pink-200">
+      <Nav />
       {/* Gallery */}
       <Gallery />
       <div className="grid bg-pink-200 grid-cols-3 gap-24">
@@ -21,17 +24,18 @@ function House() {
           </div>
         </div>
 
-        {/* Leave a review */}
-        <div className="flex bg-blue-200 justify-between">
-          {/*Total price*/}
-          <div class="bg-blue-600">4.1</div>
-          <div className="grid bg-blue-200">
-            {/* Reserve button */}
-            <div class="bg-blue-600">4.2</div>
-          </div>
+        {/*Total price*/}
+        <div class="bg-blue-600">4.1</div>
+        <div className="grid bg-blue-200">
+          {/* Reserve button */}
+          <div class="bg-blue-600">4.2</div>
         </div>
       </div>
+
       {/* Read listing reviews */}
+      <Reviews />
+
+      {/* Last section */}
       <div className="grid bg-pink-200 grid-cols-3 gap-24">
         <div class="col-span-2 bg-blue-200">
           <div className="flex bg-blue-200 gap-2">
@@ -41,9 +45,6 @@ function House() {
             <div class="bg-blue-600">5.2</div>
           </div>
         </div>
-
-        {/* Leave a review */}
-        <div class="bg-pink-600">6</div>
       </div>
     </div>
   )
