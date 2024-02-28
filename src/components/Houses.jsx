@@ -1,28 +1,24 @@
+import HouseCard from './HouseCard'
+import Filters from './Filters'
+
 function Houses() {
   return (
     /* Adding container to position the content wrap the page */
     <div className="container mx-auto">
-      {/* Creating a flexbox for the search function in the page */}
-      <h1 className="flex bg-blue-200 justify-between">
-        <div class="bg-blue-600">1</div>
-        <div class="bg-blue-600">2</div>
-        <div class="bg-blue-600">3</div>
-        <div class="bg-blue-600">4</div>
-        <div class="bg-blue-600">5</div>
-        <div class="bg-blue-600">6</div>
-      </h1>
-      {/* Creating a Grid for the house listings */}
+      {/* Importing flexbox for the search function from filters */}
+      <Filters />
+      {/* Importing houses from HouseCard */}
       <div className="grid bg-pink-200 grid-cols-5 gap-3">
-        <div class="bg-pink-600">1</div>
-        <div class="bg-pink-600">2</div>
-        <div class="bg-pink-600">3</div>
-        <div class="bg-pink-600">4</div>
-        <div class="bg-pink-600">5</div>
-        <div class="bg-pink-600">6</div>
-        <div class="bg-pink-600">7</div>
-        <div class="bg-pink-600">8</div>
-        <div class="bg-pink-600">9</div>
-        <div class="bg-pink-600">10</div>
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
+        <HouseCard />
       </div>
     </div>
   )
