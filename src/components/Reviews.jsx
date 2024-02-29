@@ -11,8 +11,19 @@ function Reviews() {
       {/* Leaving a Review Option */}
       <div className="">
         <div className="border-2 rounded p-2 m-2">
-          <h1 className="text-sm">Leave a Review</h1>
+          <h1 className="text-m font-semibold">Leave a Review</h1>
           <h2 className="text-sm">⭐️ Rating</h2>
+          <div className="border-2 rounded p-2 m-2">
+            <form>
+              <textarea
+                type="text"
+                placeholder="Please leave a review for this house..."
+              />
+            </form>
+          </div>
+          <button className="rounded-md bg-[#FB7185] text-white p-2 ">
+            Submit Review
+          </button>
         </div>
       </div>
     </div>
