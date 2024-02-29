@@ -1,6 +1,14 @@
 function Reviews() {
   return (
     <div className="grid bg-pink-200 grid-cols-3 gap-24">
+      <Review />
+    </div>
+  )
+}
+
+function Review() {
+  return (
+    <>
       <div class="col-span-2 bg-blue-200">
         <div className="flex bg-blue-200 gap-2">
           {/* guest profile photo */}
@@ -10,7 +18,8 @@ function Reviews() {
         </div>
       </div>
       <div class="bg-pink-600">6</div>
-    </div>
+    </>
   )
 }
+
 export default Reviews
