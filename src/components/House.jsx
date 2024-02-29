@@ -40,7 +40,13 @@ function House() {
         <div class="col-span-2">
           <div className="flex justify-start gap-2">
             {/* host profile picture */}
-            <div className="">3.2</div>
+            <div className="w-64">
+              <img
+                src="https://randomuser.me/api/portraits/women/85.jpg"
+                alt="host photo"
+                className="w-full rounded-full"
+              />
+            </div>
             {/* host name*/}
             <div>
               <h1 className="text-gray-400">Hosted by</h1>
