@@ -34,9 +34,10 @@ function Filters() {
           type="select"
           class="rounded-md p-2 border-2 border-slate-200 w-[20%] text-sm"
         >
-          <option value="price_low">sort by</option>
-          <option value="price_low">Lowest Price</option>
-          <option value="furthest">Furthest from party hostels</option>
+          <option value="">sort by</option>
+          <option value="price_lowest">Lowest Price</option>
+          <option value="price_highest">Highest Price</option>
+          <option value="highest_rated">Highest Rated</option>
         </select>
 
         {/* Keywords */}
