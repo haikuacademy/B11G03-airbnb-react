@@ -13,18 +13,16 @@ function Reviews() {
 
 function Review() {
   return (
-    <>
-      <div class="bg-pink-600 p-3">
-        <div class=" bg-blue-200">
-          <div className="flex bg-blue-200 gap-2">
-            {/* guest profile photo */}
-            <div class="bg-blue-600">5.1</div>
-            {/* guest name */}
-            <div class="bg-blue-600">5.2</div>
-          </div>
+    <div class="bg-pink-600 p-3">
+      <div class=" bg-blue-200">
+        <div className="flex bg-blue-200 gap-2">
+          {/* guest profile photo */}
+          <div class="bg-blue-600">5.1</div>
+          {/* guest name */}
+          <div class="bg-blue-600">5.2</div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
