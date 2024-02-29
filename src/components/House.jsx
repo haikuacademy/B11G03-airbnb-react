@@ -4,7 +4,7 @@ import Reviews from './Reviews'
 
 function House() {
   return (
-    <div className="container mx-auto bg-pink-200">
+    <div className="container mx-auto">
       <Nav />
       {/* Gallery */}
       <Gallery />
