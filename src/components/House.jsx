@@ -8,30 +8,69 @@ function House() {
       <Nav />
       {/* Gallery */}
       <Gallery />
-      <div className="grid bg-pink-200 grid-cols-3 gap-24">
+      <div className="grid grid-cols-3 gap-6 justify-between">
         {/* Title and description of the listing */}
-        <div class="bg-pink-600 col-span-2">3</div>
-        {/* Booking window */}
-        <div class="bg-pink-600">4</div>
-      </div>
+        <div className="col-span-2">
+          <h1 className="text-3xl font-extrabold mt-3">Phuket, Thailand</h1>
+          {/* bedrooms and bathrooms */}
+          <h2 className=" text-gray-600 font-bold">2 rooms * 2 bathrooms</h2>
+        </div>
 
-      {/* Read listing reviews */}
-      <div className="grid grid-cols-3 gap-24">
-        <div class="col-span-2 bg-blue-200">
-          <div className="flex bg-blue-200 gap-2">
-            {/* host photo */}
-            <div class="bg-blue-600">3.1</div>
-            {/* host name */}
-            <div class="bg-blue-600">3.2</div>
+        {/* Booking */}
+        <div className="border rounded-md m-5 p-5 boder">
+          <div className="font-bold text-lg">
+            $120 <span className="text-gray-500">/ night</span>
+          </div>
+          {/* flexbox for booking */}
+          <div className="flex justify-between">
+            {/*Total price*/}
+            <div class="">
+              3 nights = <span className="font-bold">$360</span>
+            </div>
+            <div className="flex bg-blue-200">
+              {/* Reserve button */}
+              <div class="bg-blue-600">4.2</div>
+            </div>
           </div>
         </div>
-        {/* flexbox */}
-        <div className="flex bg-blue-200 justify-between">
-          {/*Total price*/}
-          <div class="bg-blue-600">4.1</div>
-          <div className="grid bg-blue-200">
-            {/* Reserve button */}
-            <div class="bg-blue-600">4.2</div>
+      </div>
+
+      {/* Read listing description */}
+      <div className="grid grid-cols-3 gap-24 mb-10">
+        <div class="col-span-2">
+          {/* host profile picture */}
+          <div className="flex mb-8">
+            <div className="w-10">
+              <img
+                src="https://randomuser.me/api/portraits/women/85.jpg"
+                alt="host photo"
+                className="w-full rounded-full"
+              />
+            </div>
+            {/* host name*/}
+            <div className="ml-5">
+              <div className="text-gray-400">Hosted by</div>
+              <div className="font-bold">Linda Smith</div>
+            </div>
+          </div>
+          {/*house description*/}
+          <div>
+            <p>
+              Nestled on a serene beachfront, this charming Airbb house offers a
+              picturesque escape. The exterior boasts a classic beach house
+              aesthetic with weathered wood siding and a spacious wraparound
+              deck, perfect for savoring the ocean breeze. Inside, you’re
+              greeted by an open-concept living area bathed in natural light,
+              complemented by cozy furnishings and nautical accents. The house
+              features three comfortable bedrooms, each with a unique coastal
+              theme, and two modern bathrooms. The fully equipped kitchen opens
+              to a dining area that’s ideal for intimate meals or entertaining
+              guests. Large glass doors in the living room lead to the deck,
+              where you can enjoy stunning sunset views over the ocean. This
+              idyllic retreat is a stone’s throw away from the soft sandy beach,
+              making it the perfect spot for beach lovers and those seeking a
+              tranquil getaway.
+            </p>
           </div>
         </div>
       </div>
