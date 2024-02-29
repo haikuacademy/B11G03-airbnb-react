@@ -8,6 +8,7 @@ function Reviews() {
         <Review />
         <Review />
       </div>
+      {/* Leaving a Review Option */}
       <div className="">
         <div className="border-2 rounded p-2 m-2">
           <h1 className="text-sm">Leave a Review</h1>
