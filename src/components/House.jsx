@@ -38,9 +38,9 @@ function House() {
       {/* Read listing description */}
       <div className="grid grid-cols-3 gap-24 mb-10">
         <div class="col-span-2">
-          <div className="flex justify-start gap-2">
-            {/* host profile picture */}
-            <div className="w-64">
+          {/* host profile picture */}
+          <div className="flex">
+            <div className="w-10">
               <img
                 src="https://randomuser.me/api/portraits/women/85.jpg"
                 alt="host photo"
@@ -48,26 +48,29 @@ function House() {
               />
             </div>
             {/* host name*/}
-            <div>
-              <h1 className="text-gray-400">Hosted by</h1>
-              <h3 className="font-bold">Linda Smith</h3>
-              <text>
-                Nestled on a serene beachfront, this charming Airbb house offers
-                a picturesque escape. The exterior boasts a classic beach house
-                aesthetic with weathered wood siding and a spacious wraparound
-                deck, perfect for savoring the ocean breeze. Inside, you’re
-                greeted by an open-concept living area bathed in natural light,
-                complemented by cozy furnishings and nautical accents. The house
-                features three comfortable bedrooms, each with a unique coastal
-                theme, and two modern bathrooms. The fully equipped kitchen
-                opens to a dining area that’s ideal for intimate meals or
-                entertaining guests. Large glass doors in the living room lead
-                to the deck, where you can enjoy stunning sunset views over the
-                ocean. This idyllic retreat is a stone’s throw away from the
-                soft sandy beach, making it the perfect spot for beach lovers
-                and those seeking a tranquil getaway.
-              </text>
+            <div className="ml-5">
+              <div className="text-gray-400">Hosted by</div>
+              <div className="font-bold">Linda Smith</div>
             </div>
+          </div>
+          {/*house description*/}
+          <div>
+            <p>
+              Nestled on a serene beachfront, this charming Airbb house offers a
+              picturesque escape. The exterior boasts a classic beach house
+              aesthetic with weathered wood siding and a spacious wraparound
+              deck, perfect for savoring the ocean breeze. Inside, you’re
+              greeted by an open-concept living area bathed in natural light,
+              complemented by cozy furnishings and nautical accents. The house
+              features three comfortable bedrooms, each with a unique coastal
+              theme, and two modern bathrooms. The fully equipped kitchen opens
+              to a dining area that’s ideal for intimate meals or entertaining
+              guests. Large glass doors in the living room lead to the deck,
+              where you can enjoy stunning sunset views over the ocean. This
+              idyllic retreat is a stone’s throw away from the soft sandy beach,
+              making it the perfect spot for beach lovers and those seeking a
+              tranquil getaway.
+            </p>
           </div>
         </div>
       </div>
