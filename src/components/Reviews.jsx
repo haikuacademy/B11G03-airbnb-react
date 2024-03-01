@@ -13,15 +13,15 @@ function Reviews() {
         <div className="border-2 rounded p-2 m-2">
           <p className="text-m font-semibold">Leave a Review</p>
           <p className="text-sm">⭐️ Rating</p>
-          <div className="border-2 rounded p-2 m-2">
-            <form>
-              <textarea
-                type="text"
-                placeholder="Please leave a review for this house..."
-              />
-            </form>
-          </div>
+
           <form>
+            <textarea
+              type="text"
+              placeholder="Please leave a review for this house..."
+              rows="6"
+              className="w-full border-2 rounded p-2 m"
+            />
+
             <button
               type="submit"
               className="rounded-md bg-[#FB7185] text-white p-2 "
