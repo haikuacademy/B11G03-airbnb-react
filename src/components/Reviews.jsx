@@ -10,16 +10,15 @@ function Reviews() {
       </div>
       {/* Leaving a Review Option */}
       <div className="">
-        <div className="border-2 rounded p-2 m-2">
-          <p className="text-m font-semibold">Leave a Review</p>
-          <p className="text-sm">⭐️ Rating</p>
-
+        <div className="border-2 rounded p-4">
+          <p className="text-m ">Leave a Review</p>
+          <p className="text-sm m-2">⭐️ Rating</p>
           <form>
             <textarea
               type="text"
               placeholder="Please leave a review for this house..."
               rows="6"
-              className="w-full border-2 rounded p-2 m"
+              className="w-full border-2 rounded p-2"
             />
 
             <button
