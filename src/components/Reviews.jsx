@@ -13,10 +13,26 @@ function Reviews() {
         <Review />
         <Review />
       </div>
+      {/* Leaving a Review Option */}
       <div className="">
-        <div className="border-2 rounded p-2 m-2">
-          <h1 className="text-sm">Leave a Review</h1>
-          <h2 className="text-sm">⭐️ Rating</h2>
+        <div className="border-2 rounded p-4">
+          <p className="text-m ">Leave a Review</p>
+          <p className="text-sm m-2">⭐️ Rating</p>
+          <form>
+            <textarea
+              type="text"
+              placeholder="Please leave a review for this house..."
+              rows="6"
+              className="w-full border-2 rounded p-2"
+            />
+
+            <button
+              type="submit"
+              className="rounded-md bg-[#FB7185] text-white p-2 "
+            >
+              Submit Review
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -37,17 +53,17 @@ function Review() {
         </div>
         {/* review date & guest name */}
         <div>
-          <h1 className="text-xs text-slate-400">22 Jan 2024</h1>
-          <h2 className="text-sm font-semibold">Mike Lino</h2>
+          <p className="text-xs text-slate-400">22 Jan 2024</p>
+          <p className="text-sm font-semibold">Mike Lino</p>
         </div>
       </div>
       {/* review star rating & review */}
-      <h1 className="text-xs"> ⭐️ Rating</h1>
-      <h2 className="text-sm">
+      <p className="text-xs"> ⭐️ Rating</p>
+      <p className="text-sm">
         Great place to stay! The house is very clean and confortable, and the
         location is perfect. The host was very friendly and helpful. Highly
         recommend!
-      </h2>
+      </p>
     </div>
   )
 }
