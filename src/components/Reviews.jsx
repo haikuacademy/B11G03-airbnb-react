@@ -2,7 +2,7 @@ function Reviews() {
   return (
     <div className="grid grid-cols-3 gap-24">
       <div className="col-span-2">
-        <p className="text-lg font-bold">34 Reviews</p>
+        <p className="text-2xl font-bold"> 💬 34 Reviews</p>
         <p className="text-sm">Overall ⭐️ Rating</p>
         <Review />
         <Review />
@@ -39,7 +39,13 @@ function Review() {
     <div className="p-2 rounded border-2 m-2">
       <div className="flex gap-2">
         {/* guest profile photo */}
-        <div className="bg-blue-600">5.1</div>
+        <div className="">
+          <img
+            src="https://randomuser.me/api/portraits/men/84.jpg"
+            alt="Guest review photo"
+            className="w-10 rounded-full"
+          />
+        </div>
         {/* review date & guest name */}
         <div>
           <p className="text-xs text-slate-400">22 Jan 2024</p>
