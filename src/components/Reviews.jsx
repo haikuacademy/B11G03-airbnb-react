@@ -3,7 +3,7 @@ function Reviews() {
     <div className="grid grid-cols-3 gap-24">
       <div className="col-span-2">
         <p className="text-lg font-bold">34 Reviews</p>
-        <h1 className="text-sm">Overall ⭐️ Rating</h1>
+        <p className="text-sm">Overall ⭐️ Rating</p>
         <Review />
         <Review />
         <Review />
@@ -11,8 +11,8 @@ function Reviews() {
       {/* Leaving a Review Option */}
       <div className="">
         <div className="border-2 rounded p-2 m-2">
-          <h1 className="text-m font-semibold">Leave a Review</h1>
-          <h2 className="text-sm">⭐️ Rating</h2>
+          <p className="text-m font-semibold">Leave a Review</p>
+          <p className="text-sm">⭐️ Rating</p>
           <div className="border-2 rounded p-2 m-2">
             <form>
               <textarea
@@ -21,9 +21,14 @@ function Reviews() {
               />
             </form>
           </div>
-          <button className="rounded-md bg-[#FB7185] text-white p-2 ">
-            Submit Review
-          </button>
+          <form>
+            <button
+              type="submit"
+              className="rounded-md bg-[#FB7185] text-white p-2 "
+            >
+              Submit Review
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -38,17 +43,17 @@ function Review() {
         <div className="bg-blue-600">5.1</div>
         {/* review date & guest name */}
         <div>
-          <h1 className="text-xs text-slate-400">22 Jan 2024</h1>
-          <h2 className="text-sm font-semibold">Mike Lino</h2>
+          <p className="text-xs text-slate-400">22 Jan 2024</p>
+          <p className="text-sm font-semibold">Mike Lino</p>
         </div>
       </div>
       {/* review star rating & review */}
-      <h1 className="text-xs"> ⭐️ Rating</h1>
-      <h2 className="text-sm">
+      <p className="text-xs"> ⭐️ Rating</p>
+      <p className="text-sm">
         Great place to stay! The house is very clean and confortable, and the
         location is perfect. The host was very friendly and helpful. Highly
         recommend!
-      </h2>
+      </p>
     </div>
   )
 }
