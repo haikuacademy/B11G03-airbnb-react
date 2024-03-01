@@ -39,7 +39,7 @@ function House() {
       <div className="grid grid-cols-3 gap-24 mb-10">
         <div class="col-span-2">
           {/* host profile picture */}
-          <div className="flex mb-8">
+          <div className="flex mb-8 items-center">
             <div className="w-10">
               <img
                 src="https://randomuser.me/api/portraits/women/85.jpg"
