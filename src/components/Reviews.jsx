@@ -2,13 +2,8 @@ function Reviews() {
   return (
     <div className="grid grid-cols-3 gap-24">
       <div className="col-span-2">
-<<<<<<< Updated upstream
-        <p className="text-lg font-bold">34 Reviews</p>
-        <h1 className="text-sm">Overall ⭐️ Rating</h1>
-=======
         <p className="text-2xl font-bold"> 💬 34 Reviews</p>
         <p className="text-sm">Overall ⭐️ Rating</p>
->>>>>>> Stashed changes
         <Review />
         <Review />
         <Review />
