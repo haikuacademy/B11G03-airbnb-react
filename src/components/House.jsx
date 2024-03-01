@@ -17,21 +17,41 @@ function House() {
         </div>
 
         {/* Booking */}
-        <div className="border rounded-md m-5 p-5 boder">
+        <div className="border-2 rounded-md m-5 p-5 boder">
           <div className="font-bold text-lg">
             $120 <span className="text-gray-500">/ night</span>
           </div>
-          {/* flexbox for booking */}
-          <div className="flex justify-between">
-            {/*Total price*/}
-            <div class="">
-              3 nights = <span className="font-bold">$360</span>
+          <form className="mt-3">
+            {/*check-in check-out*/}
+            <div className="flex">
+              <div>
+                <label className="text-gray-500">Check-in</label>
+                <input type="date" className="border-2 rounded-sm p-2 mr-4" />
+              </div>
+              <div>
+                <label className="text-gray-500">Check-out</label>
+                <input type="date" className="border-2 rounded-sm p-2 mr-4" />
+              </div>
             </div>
-            <div className="flex bg-blue-200">
-              {/* Reserve button */}
-              <div class="bg-blue-600">4.2</div>
+            {/*message to the host box*/}
+            <div className=" block mt-3">
+              <textarea
+                className="border-2 p-2 w-full"
+                placeholder="Send a message to the host"
+                cols="50"
+                rows="10"
+              ></textarea>
             </div>
-          </div>
+            {/*total and reserve button*/}
+            <div className="flex justify-between mt-3">
+              <div>
+                3 nights= <strong>$360</strong>
+              </div>
+              <button className="p-3 w-1/4 mb-3 bg-red-400 text-white text-center font-bold border rounded-lg">
+                Reserve
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
