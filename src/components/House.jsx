@@ -97,13 +97,15 @@ function House() {
               <div>
                 3 nights= <strong>$360</strong>
               </div>
-              <button className="p-2 bg-red-400 text-white text-center border rounded-lg">
+              <button className="p-2 bg-red-400 text-white text-center rounded-lg">
                 Reserve
               </button>
             </div>
           </form>
         </div>
       </div>
+
+      <hr />
 
       {/* import reviews */}
       <Reviews rating={house.rating} />

@@ -1,12 +1,27 @@
 function Reviews({ rating }) {
+  const rev1 = {
+    content:
+      'Great place to stay! The house is very clean and confortable, and the location is perfect. The host was very friendly and helpful. Highly recommend!',
+    rating: 4,
+    date: '22 Jan 2024',
+    author: {
+      firstName: 'Mike',
+      lastName: 'Lino',
+      picture: 'https://randomuser.me/api/portraits/men/84.jpg'
+    }
+  }
+
+  // Creating 2 more reviews by duplicating the rev1
+  const rev2 = { ...rev1 }
+  const rev3 = { ...rev1 }
+
+  const reviews = [rev1, rev2, rev3]
   return (
     <div className="grid grid-cols-3 gap-28">
       <div className="col-span-2">
-        <p className="text-2xl font-bold"> 💬 34 Reviews</p>
+        <p className="text-2xl font-bold"> 💬 {reviews.length} Reviews</p>
         <p className="text-sm">Overall ⭐️{rating} Rating</p>
-        <Review />
-        <Review />
-        <Review />
+        <Review reviews={reviews} />
       </div>
       {/* Leaving a Review Option */}
       <div className="">
@@ -34,32 +49,36 @@ function Reviews({ rating }) {
   )
 }
 
-function Review() {
+function Review({ reviews }) {
   return (
-    <div className="p-2 rounded border-2 m-2">
-      <div className="flex gap-2">
-        {/* guest profile photo */}
-        <div className="">
-          <img
-            src="https://randomuser.me/api/portraits/men/84.jpg"
-            alt="Guest review photo"
-            className="w-10 rounded-full"
-          />
-        </div>
-        {/* review date & guest name */}
-        <div>
-          <p className="text-xs text-slate-400">22 Jan 2024</p>
-          <p className="text-sm font-semibold">Mike Lino</p>
-        </div>
-      </div>
-      {/* review star rating & review */}
-      <p className="text-xs"> ⭐️ Rating</p>
-      <p className="text-sm">
-        Great place to stay! The house is very clean and confortable, and the
-        location is perfect. The host was very friendly and helpful. Highly
-        recommend!
-      </p>
-    </div>
+    <>
+      {reviews.map((review, index) => {
+        return (
+          <div key={index} className="p-2 rounded border-2 m-2">
+            <div className="flex gap-2">
+              {/* guest profile photo */}
+              <div className="">
+                <img
+                  src={review.author.picture}
+                  alt="Guest review photo"
+                  className="w-10 rounded-full"
+                />
+              </div>
+              {/* review date & guest name */}
+              <div>
+                <p className="text-xs text-slate-400">{review.date}</p>
+                <p className="text-sm font-semibold">
+                  {review.author.firstName} {review.author.lastName}
+                </p>
+              </div>
+            </div>
+            {/* review star rating & review */}
+            <p className="text-xs"> ⭐️{review.rating} Rating</p>
+            <p className="text-sm">{review.content}</p>
+          </div>
+        )
+      })}
+    </>
   )
 }
 
