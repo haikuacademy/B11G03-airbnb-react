@@ -21,7 +21,10 @@ function Reviews({ rating }) {
       <div className="col-span-2">
         <p className="text-2xl font-bold"> 💬 {reviews.length} Reviews</p>
         <p className="text-sm">Overall ⭐️{rating} Rating</p>
-        <Review reviews={reviews} />
+
+        {reviews.map((review, index) => {
+          return <Review review={review} key={index} />
+        })}
       </div>
       {/* Leaving a Review Option */}
       <div className="">
@@ -49,36 +52,30 @@ function Reviews({ rating }) {
   )
 }
 
-function Review({ reviews }) {
+function Review({ review }) {
   return (
-    <>
-      {reviews.map((review, index) => {
-        return (
-          <div key={index} className="p-2 rounded border-2 m-2">
-            <div className="flex gap-2">
-              {/* guest profile photo */}
-              <div className="">
-                <img
-                  src={review.author.picture}
-                  alt="Guest review photo"
-                  className="w-10 rounded-full"
-                />
-              </div>
-              {/* review date & guest name */}
-              <div>
-                <p className="text-xs text-slate-400">{review.date}</p>
-                <p className="text-sm font-semibold">
-                  {review.author.firstName} {review.author.lastName}
-                </p>
-              </div>
-            </div>
-            {/* review star rating & review */}
-            <p className="text-xs"> ⭐️{review.rating} Rating</p>
-            <p className="text-sm">{review.content}</p>
-          </div>
-        )
-      })}
-    </>
+    <div className="p-2 rounded border-2 m-2">
+      <div className="flex gap-2">
+        {/* guest profile photo */}
+        <div className="">
+          <img
+            src={review.author.picture}
+            alt="Guest review photo"
+            className="w-10 rounded-full"
+          />
+        </div>
+        {/* review date & guest name */}
+        <div>
+          <p className="text-xs text-slate-400">{review.date}</p>
+          <p className="text-sm font-semibold">
+            {review.author.firstName} {review.author.lastName}
+          </p>
+        </div>
+      </div>
+      {/* review star rating & review */}
+      <p className="text-xs"> ⭐️{review.rating} Rating</p>
+      <p className="text-sm">{review.content}</p>
+    </div>
   )
 }
 
