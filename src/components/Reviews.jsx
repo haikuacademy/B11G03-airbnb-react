@@ -1,9 +1,9 @@
-function Reviews() {
+function Reviews({ rating }) {
   return (
-    <div className="grid grid-cols-3 gap-24">
+    <div className="grid grid-cols-3 gap-28">
       <div className="col-span-2">
         <p className="text-2xl font-bold"> 💬 34 Reviews</p>
-        <p className="text-sm">Overall ⭐️ Rating</p>
+        <p className="text-sm">Overall ⭐️{rating} Rating</p>
         <Review />
         <Review />
         <Review />
