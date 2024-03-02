@@ -15,37 +15,21 @@ function Listings() {
           <div class="grid gap-0">
             {/* House Location */}
             <label className="text-slate-400 text-sm mb-[-8px]">Location</label>
-            <input
-              className="border rounded-md h-10 px-2"
-              type="text"
-              defaultValue={'Bali'}
-            />
+            <input className="border rounded-md h-10 px-2" type="text" />
 
             {/* Bedrooms */}
             <label className="text-slate-400 text-sm mb-[-8px]">Bedroom</label>
-            <input
-              className="border rounded-md h-10 px-2"
-              type="text"
-              defaultValue={3}
-            />
+            <input className="border rounded-md h-10 px-2" type="text" />
 
             {/* Bathrooms */}
             <label className="text-slate-400 text-sm mb-[-8px]">Bathroom</label>
-            <input
-              className="border rounded-md h-10 px-2"
-              type="text"
-              defaultValue={2}
-            />
+            <input className="border rounded-md h-10 px-2" type="text" />
 
             {/* Price per night */}
             <label className="text-slate-400 text-sm mb-[-8px]">
               Price per Night
             </label>
-            <input
-              className="border rounded-md h-10 px-2"
-              type="text"
-              defaultValue={140}
-            />
+            <input className="border rounded-md h-10 px-2" type="text" />
 
             {/* Description */}
             <label className="text-slate-400 text-sm mb-[-8px]">
