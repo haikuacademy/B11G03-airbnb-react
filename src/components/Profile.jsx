@@ -1,6 +1,13 @@
 import Nav from './Nav'
 
 function Profile() {
+  const user = {
+    firstName: 'John',
+    lastName: 'Lopez',
+    email: 'john.lopez@gmail.com',
+    picture: 'https://randomuser.me/api/portraits/men/81.jpg'
+  }
+
   return (
     <div className="container mx-auto">
       <Nav />
@@ -11,14 +18,14 @@ function Profile() {
         <form>
           <div className="flex gap-2 mb-4 items-center">
             <img
-              src="https://randomuser.me/api/portraits/men/81.jpg"
+              src={user.picture}
               alt="Guest review photo"
               className="w-20 rounded-full"
             />
             <input
               type="text"
               className="border rounded h-10 font-light p-2 w-full"
-              defaultValue="https://randomuser.me/api/portraits/men/81.jpg"
+              defaultValue={user.picture}
             />
           </div>
 
@@ -29,7 +36,7 @@ function Profile() {
             <input
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
-              defaultValue="John"
+              defaultValue={user.firstName}
             />
           </div>
 
@@ -40,7 +47,7 @@ function Profile() {
             <input
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
-              defaultValue="Lopez"
+              defaultValue={user.lastName}
             />
           </div>
 
@@ -49,7 +56,7 @@ function Profile() {
             <input
               type="email"
               className="border rounded font-light mb-4 p-2 w-full"
-              defaultValue="john.lopez@gmail.com"
+              defaultValue={user.email}
             />
           </div>
 
