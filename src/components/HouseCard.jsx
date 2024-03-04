@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 
-function HouseCard({ booking }) {
+function HouseCard({ booking, listings, houses }) {
   const {
     houseId,
     location,
     rooms,
     bathrooms,
+    priceNight,
+    reviewRating,
+    totalReviews,
     checkIn,
     checkOut,
-    priceNight,
     totalNights,
     totalPrice,
     photoUrl
@@ -21,12 +23,23 @@ function HouseCard({ booking }) {
         <div className="p-3">
           <h5 className="font-bold">{location}</h5>
           <span className="text-sm">
-            {rooms} • {bathrooms}
+            {rooms} Bedrooms • {bathrooms} Bathrooms
           </span>
-          <h6 className="font-bold py-2">{priceNight}</h6>
-          <div className="flex justify-between">
-            <p>4.5</p>
-            <p>34</p>
+          <h6 className="font-bold py-2"> ${priceNight}</h6>
+
+          <div>
+            <div>
+              {booking.isbooking}
+              <div>
+                {reviewRating}rating {totalReviews} total reviews
+              </div>
+              <div>
+                {checkIn} / {checkOut}
+              </div>
+              <div className="  bg-emerald-100 border rounded-sm">
+                {totalNights} nights = ${totalPrice}{' '}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -35,3 +48,12 @@ function HouseCard({ booking }) {
 }
 
 export default HouseCard
+
+/*{
+  listing.islisting && (
+    <div>
+      <button>view</button>
+      <button>edit</button>
+    </div>
+  )
+}*/

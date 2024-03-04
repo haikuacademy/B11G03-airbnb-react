@@ -13,9 +13,9 @@ function Bookings() {
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-      priceNight: 120,
-      totalNights: 7,
-      totalPrice: 750,
+      priceNight: 100,
+      totalNights: 8,
+      totalPrice: 800,
       reviewRating: 4,
       totalReviews: 12,
       photoUrl:
@@ -58,11 +58,11 @@ function Bookings() {
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
+      totalReviews: 12,
+      reviewRating: 4,
       priceNight: 120,
       totalNights: 7,
       totalPrice: 500,
-      reviewRating: 4,
-      totalReviews: 12,
       photoUrl:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
@@ -86,11 +86,11 @@ function Bookings() {
   return (
     <div className="container mx-auto">
       <Nav />
-      <div className="grid grid-cols-5 gap-3 bg-pink-200">
+      <div className="grid grid-cols-5 gap-3">
         {/* create a loop that goes into the bookingCard array and check the values / sending the info to the child(houseCard) */}
 
         {bookingCard.map((booking, index) => (
-          <HouseCard key={index} booking={booking} />
+          <HouseCard key={index} booking={booking} isbooking={true} />
         ))}
       </div>
     </div>
