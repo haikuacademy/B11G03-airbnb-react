@@ -67,10 +67,11 @@ function HouseEdit() {
                 Save Changes
               </button>
               {/* Cancel button */}
-              <Link to="/listings">
-                <button className="rounded-md border-2 w-20 text-base p-2 mt-4">
-                  Cancel
-                </button>
+              <Link
+                to="/listings"
+                className="rounded-md border-2 w-20 text-base p-2 mt-4"
+              >
+                Cancel
               </Link>
             </div>
           </div>
