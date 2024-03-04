@@ -7,6 +7,7 @@ function Bookings() {
   }
   const bookingCard = [
     {
+      houseId: 1,
       location: 'Phuket, Thailand',
       rooms: 2,
       bathrooms: 2,
@@ -21,7 +22,8 @@ function Bookings() {
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      location: 'Phuket, Thailand',
+      houseId: 2,
+      location: 'Bali, Indonesia',
       rooms: 2,
       bathrooms: 2,
       checkIn: '2024-03-20',
@@ -35,7 +37,8 @@ function Bookings() {
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      location: 'Phuket, Thailand',
+      houseId: 3,
+      location: 'koh Samui, Thailand',
       rooms: 2,
       bathrooms: 2,
       checkIn: '2024-03-20',
@@ -49,6 +52,7 @@ function Bookings() {
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
+      houseId: 4,
       location: 'Goa, India',
       rooms: 56,
       bathrooms: 2,
@@ -63,7 +67,8 @@ function Bookings() {
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      location: 'Goa, India',
+      houseId: 5,
+      location: 'Krabi, Thailand',
       rooms: 56,
       bathrooms: 2,
       checkIn: '2024-03-20',
