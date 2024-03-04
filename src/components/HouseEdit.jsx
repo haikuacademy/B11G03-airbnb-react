@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 function HouseEdit() {
   const houseDescription =
@@ -87,9 +88,12 @@ function HouseEdit() {
                 Save Changes
               </button>
               {/* Cancel button */}
-              <button className="rounded-md border-2 w-20 text-base p-2 mt-4">
+              <Link
+                to="/listings"
+                className="rounded-md border-2 w-20 text-base p-2 mt-4"
+              >
                 Cancel
-              </button>
+              </Link>
             </div>
           </div>
           {/* Starting Column 2 of the main grid */}
