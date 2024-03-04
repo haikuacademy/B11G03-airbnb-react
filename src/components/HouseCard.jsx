@@ -1,15 +1,28 @@
-function HouseCard() {
+function HouseCard({ booking }) {
+  {
+    /**/
+  }
+  const {
+    location,
+    rooms,
+    bathrooms,
+    checkIn,
+    checkOut,
+    priceNight,
+    totalNights,
+    totalPrice,
+    photoUrl
+  } = booking
+
   return (
     <div className="block border rounded-md">
-      <img
-        src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png"
-        alt="House image"
-        className="rounded-t"
-      />
+      <img src={photoUrl} alt="House image" className="rounded-t" />
       <div className="p-3">
-        <h5 className="font-bold">Phuket, Thailand</h5>
-        <span className="text-sm">2 rooms • 2 bathrooms</span>
-        <h6 className="font-bold py-2">$120</h6>
+        <h5 className="font-bold">{location}</h5>
+        <span className="text-sm">
+          {rooms} • {bathrooms}
+        </span>
+        <h6 className="font-bold py-2">{priceNight}</h6>
         <div className="flex justify-between">
           <p>4.5</p>
           <p>34</p>
