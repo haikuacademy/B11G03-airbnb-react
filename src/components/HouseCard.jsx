@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-regular-svg-icons'
 
 function HouseCard() {
+  const rating = 5
   return (
     <Link to="/houses/1">
       <div className="block border rounded-md">
@@ -10,11 +13,21 @@ function HouseCard() {
           className="rounded-t"
         />
         <div className="p-3">
-          <h5 className="font-bold">Phuket, Thailand</h5>
+          <p className="font-bold">Phuket, Thailand</p>
           <span className="text-sm">2 rooms • 2 bathrooms</span>
-          <h6 className="font-bold py-2">$120</h6>
+          <p className="font-bold py-2">$120</p>
           <div className="flex justify-between">
-            <p>4.5</p>
+            <div className="flex gap-2">
+              <div className="">
+                {[...new Array(rating)].map((i, index) => (
+                  <FontAwesomeIcon
+                    key={index}
+                    icon={faStar}
+                    className=" text-yellow-400"
+                  />
+                ))}
+              </div>
+            </div>
             <p>34</p>
           </div>
         </div>
