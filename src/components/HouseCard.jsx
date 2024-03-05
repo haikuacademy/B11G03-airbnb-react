@@ -1,22 +1,18 @@
 import { Link } from 'react-router-dom'
 
-function HouseCard(props) {
-  const { location, rooms, bathrooms, price, rating, reviews, photo } =
-    props.house
-
+function HouseCard({ house }) {
   return (
-    <Link to="/houses/1">
+    <Link to={`/houses/${house.houseId}`}>
       <div className="block border rounded-md">
-        <img src={photo} alt="House image" className="rounded-t" />
+        <img src={house.photoUrl} alt="House image" className="rounded-t" />
         <div className="p-3">
-          <h5 className="font-bold">{location}</h5>
+          <h5 className="font-bold">{house.location}</h5>
           <span className="text-sm">
-            {rooms} rooms • {bathrooms} bathrooms
+            {house.rooms} Bedrooms • {house.bathrooms} Bathrooms
           </span>
-          <h6 className="font-bold py-2">${price}</h6>
-          <div className="flex justify-between">
-            <p>{rating}</p>
-            <p>{reviews}</p>
+          <h6 className="font-bold py-2"> ${house.priceNight}</h6>
+          <div>
+            {house.reviewRating}(StarsRating) {house.totalReviews}(TotalReviews)
           </div>
         </div>
       </div>
