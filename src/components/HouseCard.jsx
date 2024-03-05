@@ -13,9 +13,9 @@ function HouseCard() {
           className="rounded-t"
         />
         <div className="p-3">
-          <p className="font-bold">Phuket, Thailand</p>
+          <h5 className="font-bold">Phuket, Thailand</h5>
           <span className="text-sm">2 rooms • 2 bathrooms</span>
-          <p className="font-bold py-2">$120</p>
+          <h6 className="font-bold py-2">$120</h6>
           <div className="flex justify-between">
             <div className="flex gap-2">
               <div className="">
