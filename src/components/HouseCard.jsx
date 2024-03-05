@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function HouseCard() {
+function HouseCard({ isListing }) {
   return (
     <Link to="/houses/1">
       <div className="block border rounded-md">
@@ -16,6 +16,20 @@ function HouseCard() {
           <div className="flex justify-between">
             <p>4.5</p>
             <p>34</p>
+          </div>
+          <div className="flex justify-start gap-2 mt-2">
+            <button
+              type="submit"
+              className="rounded-md font-light border p-1 px-2 text-sm"
+            >
+              View
+            </button>
+            <button
+              type="submit"
+              className="rounded-md font-light border p-1 px-2 text-sm"
+            >
+              Edit
+            </button>
           </div>
         </div>
       </div>
