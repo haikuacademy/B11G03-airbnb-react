@@ -5,7 +5,7 @@ function Bookings() {
   {
     /*create array of objects with all the infomation for every booking that we get*/
   }
-  const bookingCard = [
+  const houses = [
     {
       houseId: 1,
       location: 'Phuket, Thailand',
@@ -89,7 +89,7 @@ function Bookings() {
       <div className="grid grid-cols-5 gap-3">
         {/* create a loop that goes into the bookingCard array and check the values / sending the info to the child(houseCard) */}
 
-        {bookingCard.map((booking, index) => (
+        {houses.map((booking, index) => (
           <HouseCard key={index} house={booking} isbooking={true} />
         ))}
       </div>

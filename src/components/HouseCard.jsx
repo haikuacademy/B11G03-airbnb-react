@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function HouseCard({ house }) {
+function HouseCard({ house, isbooking }) {
   return (
     <Link to={`/houses/${house.houseId}`}>
       <div className="block border rounded-md">
@@ -12,7 +12,18 @@ function HouseCard({ house }) {
           </span>
           <h6 className="font-bold py-2"> ${house.priceNight}</h6>
           <div>
-            {house.reviewRating}(StarsRating) {house.totalReviews}(TotalReviews)
+            {house.reviewRating}(Rating) {house.totalReviews}(TotalReviews)
+          </div>
+          <div>
+            {isbooking ? (
+              <div className="bg-green-200 border rounded-sm">
+                {' '}
+                {house.checkIn} {house.checkOut}
+                <div>
+                  {house.totalNights} Nights = ${house.totalPrice}
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
