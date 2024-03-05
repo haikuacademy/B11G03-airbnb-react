@@ -90,7 +90,7 @@ function Bookings() {
         {/* create a loop that goes into the bookingCard array and check the values / sending the info to the child(houseCard) */}
 
         {bookingCard.map((booking, index) => (
-          <HouseCard key={index} booking={booking} isbooking={true} />
+          <HouseCard key={index} house={booking} isbooking={true} />
         ))}
       </div>
     </div>
