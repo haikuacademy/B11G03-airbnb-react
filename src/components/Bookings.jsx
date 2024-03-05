@@ -13,13 +13,8 @@ function Bookings() {
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-<<<<<<< Updated upstream
       priceNight: 100,
       totalNights: 8,
-=======
-      priceNight: 120,
-      totalNights: 7,
->>>>>>> Stashed changes
       totalPrice: 800,
       reviewRating: 4,
       totalReviews: 12,
