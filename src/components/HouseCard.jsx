@@ -1,20 +1,18 @@
 import { Link } from 'react-router-dom'
 
-function HouseCard({ booking, listings, houses }) {
-  const {
-    houseId,
-    location,
-    rooms,
-    bathrooms,
-    priceNight,
-    reviewRating,
-    totalReviews,
-    checkIn,
-    checkOut,
-    totalNights,
-    totalPrice,
-    photoUrl
-  } = booking
+function HouseCard(props) {
+  const houseId = props.booking.houseId
+  const location = props.booking.location
+  const rooms = props.booking.rooms
+  const bathrooms = props.booking.bathrooms
+  const priceNight = props.booking.priceNight
+  const reviewRating = props.booking.reviewRating
+  const totalReviews = props.booking.totalReviews
+  const checkIn = props.booking.checkIn
+  const checkOut = props.booking.checkOut
+  const totalNights = props.booking.totalNights
+  const totalPrice = props.booking.totalPrice
+  const photoUrl = props.booking.photoUrl
 
   return (
     <Link to={`/houses/${houseId}`}>
@@ -29,7 +27,7 @@ function HouseCard({ booking, listings, houses }) {
 
           <div>
             <div>
-              {booking.isbooking}
+              {props.booking.isbooking}
               <div>
                 {reviewRating}rating {totalReviews} total reviews
               </div>
@@ -48,12 +46,3 @@ function HouseCard({ booking, listings, houses }) {
 }
 
 export default HouseCard
-
-/*{
-  listing.islisting && (
-    <div>
-      <button>view</button>
-      <button>edit</button>
-    </div>
-  )
-}*/
