@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons'
 
 function Reviews({ rating }) {
@@ -28,7 +29,20 @@ function Reviews({ rating }) {
             {reviews.length} Reviews
           </div>
         </div>
-        <p className="text-sm">Overall ⭐️{rating} Rating</p>
+        <p className="text-sm">
+          <div className="flex gap-2">
+            <div className="">
+              {[...new Array(rating)].map((i, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  className=" text-yellow-400"
+                />
+              ))}
+            </div>
+            {rating}
+          </div>
+        </p>
         {reviews.map((review, index) => {
           return <Review review={review} key={index} />
         })}
