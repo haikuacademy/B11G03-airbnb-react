@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 function HouseCard(props) {
   const { isListing } = props
@@ -10,6 +12,7 @@ function HouseCard(props) {
     bathrooms,
     priceNight,
     reviewRating,
+    reviews,
     totalReviews,
     photoUrl,
     checkIn,
@@ -17,20 +20,31 @@ function HouseCard(props) {
     totalNights,
     totalPrice
   } = props.house
+  const rating = 5
 
   return (
     <Link to={`/houses/${houseId}`}>
       <div className="block border rounded-md">
         <img src={photoUrl} alt="House image" className="rounded-t" />
         <div className="p-3">
+          {/* merge starts here */}
           <h5 className="font-bold">{location}</h5>
           <span className="text-sm">
             {rooms} rooms • {bathrooms} bathrooms
           </span>
           <h6 className="font-bold py-2">${priceNight}</h6>
           <div className="flex justify-between">
-            <p>{reviewRating}</p>
-            <p>{totalReviews}</p>
+            <div className="flex">
+              {[...new Array(rating)].map((i, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  className=" text-yellow-400"
+                />
+              ))}
+            </div>
+            <p>{reviews || totalReviews}</p>
+            {/* merge merge 2 here */}
           </div>
 
           {/* if is Listing page */}
