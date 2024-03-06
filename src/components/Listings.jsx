@@ -10,7 +10,7 @@ function Listings() {
     price: 120,
     rating: 4,
     reviews: 32,
-    photo:
+    photoUrl:
       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
   }
 
