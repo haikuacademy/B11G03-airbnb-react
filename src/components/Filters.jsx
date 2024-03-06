@@ -2,10 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBed,
   faDollarSign,
-  faHome,
   faHouse,
-  faSort,
-  faStar
+  faSort
 } from '@fortawesome/free-solid-svg-icons'
 
 function Filters() {
