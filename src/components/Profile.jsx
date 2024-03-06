@@ -1,4 +1,5 @@
 import Nav from './Nav'
+import { useState } from 'react'
 
 function Profile() {
   const user = {
@@ -6,6 +7,14 @@ function Profile() {
     lastName: 'Lopez',
     email: 'john.lopez@gmail.com',
     picture: 'https://randomuser.me/api/portraits/men/81.jpg'
+  }
+
+  const [picture, setPicture] = useState(user.picture)
+  const [pictureInputValue, setPictureInputValue] = useState(user.picture)
+  const handlePictureChange = (event) => {
+    const newPicture = event.target.value
+    setPictureInputValue(newPicture)
+    setPicture(newPicture)
   }
 
   return (
@@ -18,14 +27,15 @@ function Profile() {
         <form>
           <div className="flex gap-2 mb-4 items-center">
             <img
-              src={user.picture}
+              src={picture}
               alt="Guest review photo"
               className="w-20 rounded-full"
             />
             <input
               type="text"
               className="border rounded h-10 font-light p-2 w-full"
-              defaultValue={user.picture}
+              value={pictureInputValue}
+              onChange={handlePictureChange}
             />
           </div>
 
