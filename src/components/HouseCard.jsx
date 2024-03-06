@@ -17,7 +17,6 @@ function HouseCard(props) {
     totalNights,
     totalPrice
   } = props.house
-  console.log(props.house)
 
   return (
     <Link to={`/houses/${houseId}`}>
