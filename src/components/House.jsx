@@ -8,7 +8,7 @@ function House() {
   // Getting house data
   const house = {
     location: 'Phuket, Thailand',
-    rooms: 2,
+    bedrooms: 2,
     bathrooms: 2,
     description: houseDescription,
     price: 120,
