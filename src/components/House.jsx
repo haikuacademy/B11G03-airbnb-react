@@ -13,19 +13,21 @@ function House() {
     function datesDiference() {
       if (startDate && endDate) {
         //convert the date into a number
-        let startDateInNumbers = new Date(startDate).getTime
-        let endDateIntNumbers = new Date(endDate).getTime
+        let startDateInNumbers = new Date(startDate).getDate
+        let endDateIntNumbers = new Date(endDate).getDate
 
         let diferenceInTime = endDateIntNumbers - startDateInNumbers
 
         //let diferenceInDays = Math.round(diferenceInTime / (1000 * 3600 * 24))
 
         setNights(diferenceInTime)
+        console.log(datesDiference)
+        useEffect(() => {
+          datesDiference()
+        }, [])
       }
     }
-  }, [startDate, endDate])
-
-  //useEffect(() => {}, [nights])
+  }, [startDate, endDate, nights])
 
   const houseDescription =
     "Nestled on a serene beachfront, this charming Airbb house offers a picturesque escape. The exterior boasts a classic beach house aesthetic with weathered wood siding and a spacious wraparound deck, perfect for savoring the ocean breeze.Inside, you're greeted by an open-concept living area bathed in natural light, complemented by cozy furnishings and nautical accents. The house features three comfortable bedrooms, each with a unique coastal theme, and two modern bathrooms. The fully equipped kitchen opens to a dining area that's ideal for intimate meals or entertaining guests.Large glass doors in the living room lead to the deck, where you can enjoy stunning sunset views over the ocean.This idyllic retreat is a stone's throw away from the soft sandy beach, making it the perfect spot for beach lovers and those seeking a tranquil getaway."
@@ -133,7 +135,7 @@ function House() {
             </div>
             {/*total and reserve button*/}
             <div className="flex justify-between items-center ">
-              <div onChange={(e) => setNights(e.target.value)}>
+              <div>
                 {' '}
                 {console.log(nights)}
                 {nights}= <strong>$360</strong>
