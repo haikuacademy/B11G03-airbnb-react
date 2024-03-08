@@ -1,4 +1,20 @@
+import { useState } from 'react'
+
 function Signup() {
+  //state values
+  const [validEmail, setValidEmail] = useState(true)
+
+  //function
+  const validateEmail = (email) => {
+    if ((email.includes('@') && email.includes('.')) || !email) {
+      setValidEmail(true)
+    } else {
+      console.log('Email is not valid')
+      setValidEmail(false)
+    }
+    console.log(email)
+  }
+
   return (
     <div className=" rounded-md w-80 mx-auto mt-16 border-2 p-4">
       <form className="grid gap-2 w-full ">
@@ -18,7 +34,13 @@ function Signup() {
 
         {/* Email */}
         <label className="text-slate-500 text-sm">Email</label>
-        <input className="border rounded-md h-10 px-2" type="email" />
+        {!validEmail && <span>Invalid Email</span>}
+        <input
+          className="border rounded-md h-10 px-2"
+          type="email"
+          name="email"
+          onChange={(e) => validateEmail(e.target.value)}
+        />
 
         {/* Password */}
         <label className="text-slate-500 text-sm">Password</label>
