@@ -15,7 +15,7 @@ function Gallery(props) {
               src={image}
               alt={'photo ' + index}
               className="rounded-lg"
-              onClick={(e) => setSelectedImage(e.target.src)}
+              onClick={(event) => setSelectedImage(event.target.src)}
             />
           </div>
         ))}

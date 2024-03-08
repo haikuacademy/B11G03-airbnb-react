@@ -1,24 +1,29 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCommentDots } from '@fortawesome/free-regular-svg-icons'
+import { faCommentDots, faStar } from '@fortawesome/free-regular-svg-icons'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function Reviews({ rating }) {
-  const rev1 = {
-    content:
-      'Great place to stay! The house is very clean and confortable, and the location is perfect. The host was very friendly and helpful. Highly recommend!',
-    rating: 4,
-    date: '22 Jan 2024',
-    author: {
-      firstName: 'Mike',
-      lastName: 'Lino',
-      picture: 'https://randomuser.me/api/portraits/men/84.jpg'
+  const [reviews, setReviews] = useState([])
+
+  const getReviews = async () => {
+    try {
+      const { data } = await axios.get(
+        'https://haiku-bnb.onrender.com/reviews?house_id=2'
+      )
+      setReviews(data)
+    } catch (error) {
+      throw new Error(
+        'Error fetching reviews: ',
+        error.message ? error.message : error
+      )
     }
   }
 
-  // Creating 2 more reviews by duplicating the rev1
-  const rev2 = { ...rev1 }
-  const rev3 = { ...rev1 }
+  useEffect(() => {
+    getReviews()
+  }, [])
 
-  const reviews = [rev1, rev2, rev3]
   return (
     <div className="grid grid-cols-3 gap-28">
       <div className="col-span-2">
@@ -28,7 +33,20 @@ function Reviews({ rating }) {
             {reviews.length} Reviews
           </div>
         </div>
-        <p className="text-sm">Overall ⭐️{rating} Rating</p>
+        <p className="text-sm">
+          <div className="flex gap-2">
+            <div className="">
+              {[...new Array(rating)].map((i, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  className=" text-yellow-400"
+                />
+              ))}
+            </div>
+            {rating}
+          </div>
+        </p>
         {reviews.map((review, index) => {
           return <Review review={review} key={index} />
         })}
@@ -80,7 +98,7 @@ function Review({ review }) {
       </div>
       {/* review star rating & review */}
       <p className="text-xs"> ⭐️{review.rating} Rating</p>
-      <p className="text-sm">{review.content}</p>
+      <p className="text-sm">{review.comment}</p>
     </div>
   )
 }

@@ -86,7 +86,7 @@ function Listings() {
       {/* Flexbox to display existing house listings */}
       <div className="grid grid-cols-5 gap-3 mt-4">
         {housesArray.map((house, index) => (
-          <HouseCard key={index} house={house} />
+          <HouseCard key={index} house={house} isListing={true} />
         ))}
       </div>
     </div>
