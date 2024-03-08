@@ -3,19 +3,24 @@ import Nav from './Nav'
 import Reviews from './Reviews'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 function House() {
   const [house, setHouse] = useState({})
+  const { id } = useParams()
 
   useEffect(() => {
     const fetchHouse = async () => {
       try {
         const response = await axios.get(
-          'https://haiku-bnb.onrender.com/houses/1'
+          `https://haiku-bnb.onrender.com/houses/${id}`
         )
         setHouse(response.data)
       } catch (error) {
-        console.error('Error fetching house:', error)
+        throw new Error(
+          'Error fetching houses: ',
+          error.message ? error.message : error
+        )
       }
     }
 
