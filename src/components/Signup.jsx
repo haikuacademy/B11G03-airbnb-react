@@ -34,7 +34,7 @@ function Signup() {
 
         {/* Email */}
         <label className="text-slate-500 text-sm">Email</label>
-        {!validEmail && <span>Invalid Email</span>}
+        {!validEmail && <span className=" text-red-700">Invalid Email</span>}
         <input
           className="border rounded-md h-10 px-2"
           type="email"
