@@ -18,7 +18,7 @@ function Bookings() {
       totalPrice: 800,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
@@ -33,7 +33,7 @@ function Bookings() {
       totalPrice: 750,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
@@ -48,7 +48,7 @@ function Bookings() {
       totalPrice: 750,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
@@ -63,7 +63,7 @@ function Bookings() {
       priceNight: 120,
       totalNights: 7,
       totalPrice: 500,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
@@ -78,7 +78,7 @@ function Bookings() {
       reviewRating: 4,
       totalPrice: 500,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     }
   ]
