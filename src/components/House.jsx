@@ -1,8 +1,28 @@
 import Gallery from './Gallery'
 import Nav from './Nav'
 import Reviews from './Reviews'
+import { useState, useEffect } from 'react'
 
 function House() {
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
+  const [nights, setNights] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      let startDateInNumbers = new Date(startDate).getTime()
+      let endDateIntNumbers = new Date(endDate).getTime()
+
+      let diferenceInTime = endDateIntNumbers - startDateInNumbers
+      let diferenceInDays = Math.round(diferenceInTime / (1000 * 3600 * 24))
+
+      setNights(diferenceInDays)
+
+      setTotalPrice(diferenceInDays * house.price)
+    }
+  }, [startDate, endDate])
+
   const houseDescription =
     "Nestled on a serene beachfront, this charming Airbb house offers a picturesque escape. The exterior boasts a classic beach house aesthetic with weathered wood siding and a spacious wraparound deck, perfect for savoring the ocean breeze.Inside, you're greeted by an open-concept living area bathed in natural light, complemented by cozy furnishings and nautical accents. The house features three comfortable bedrooms, each with a unique coastal theme, and two modern bathrooms. The fully equipped kitchen opens to a dining area that's ideal for intimate meals or entertaining guests.Large glass doors in the living room lead to the deck, where you can enjoy stunning sunset views over the ocean.This idyllic retreat is a stone's throw away from the soft sandy beach, making it the perfect spot for beach lovers and those seeking a tranquil getaway."
   // Getting house data
@@ -30,6 +50,7 @@ function House() {
       'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_09.png'
     ]
   }
+
   return (
     <div className="container mx-auto">
       <Nav />
@@ -41,7 +62,7 @@ function House() {
           <h1 className="text-3xl font-extrabold mb-4">{house.location}</h1>
           {/* bedrooms and bathrooms */}
           <h2 className=" text-gray-500 text-sm mb-8">
-            {house.rooms} rooms • {house.bathrooms} bathrooms
+            {house.rooms} bedrooms • {house.bathrooms} bathrooms
           </h2>
 
           {/* Read listing description */}
@@ -79,18 +100,20 @@ function House() {
           <form className="mt-3">
             {/*check-in check-out*/}
             <div className="xl:flex grid">
-              <div className="">
-                <label className="text-gray-400 text-xs">Check-in</label>
+              <div id="startDate">
+                <label className="text-gray-400 text-xs">Check In</label>
                 <input
                   type="date"
                   className="border rounded-md p-2 h-8 xl:m-0 m-2"
-                />
+                  onChange={(e) => setStartDate(e.target.value)}
+                />{' '}
               </div>
-              <div>
-                <label className="text-gray-400 text-xs">Check-out</label>
+              <div id="endDate">
+                <label className="text-gray-400 text-xs">Check Out</label>
                 <input
                   type="date"
                   className="border rounded-md p-2 h-8 xl:m-0 m-1"
+                  onChange={(e) => setEndDate(e.target.value)}
                 />
               </div>
             </div>
@@ -105,7 +128,8 @@ function House() {
             {/*total and reserve button*/}
             <div className="flex justify-between items-center ">
               <div>
-                3 nights= <strong>$360</strong>
+                {' '}
+                {nights} nights= <strong>$ {totalPrice}</strong>
               </div>
               <button className="p-2 bg-red-400 text-white text-center border rounded-lg">
                 Reserve
