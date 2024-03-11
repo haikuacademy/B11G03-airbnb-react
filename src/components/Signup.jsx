@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 
 function Signup() {
   //state values
@@ -6,10 +7,12 @@ function Signup() {
   const [validPassword, setValidPassword] = useState(true)
 
   //prevent the form to be submited
-  const submitForm = async (event) => {
-    event.preventDefault()
-    console.log(event.target.email.value)
-    console.log(event.target.password.value)
+  const submitForm = async (e) => {
+    e.preventDefault()
+    let form = new FormData(e.target)
+    let formObject = Object.fromEntries(form.entries)
+    console.log(e.target.email.value)
+    console.log(e.target.password.value)
   }
   //function to validate the email
   const validateEmail = (email) => {
@@ -31,7 +34,7 @@ function Signup() {
 
   return (
     <div className=" rounded-md w-80 mx-auto mt-16 border-2 p-4">
-      <form className="grid gap-2 w-full " onSubmit={submitForm}>
+      <form className="grid gap-2 w-full " onSubmit={(e) => submitForm(e)}>
         <span className="flex justify-center">
           <img
             src="https://res.cloudinary.com/dsko6ntfj/image/upload/v1642399114/portal/web%20development%20beginners/05%20Project%20Airbnb/assets/logo-airbnb.png"
