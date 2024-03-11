@@ -11,7 +11,6 @@ function HouseCard(props) {
     rooms,
     bathrooms,
     priceNight,
-    reviewRating,
     reviews,
     totalReviews,
     photoUrl,
