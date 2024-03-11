@@ -6,14 +6,14 @@ function HouseCard(props) {
   const { isListing } = props
   const { isbooking } = props
   const {
-    houseId,
+    house_id,
     location,
-    bedrooms,
+    rooms,
     bathrooms,
-    priceNight,
-    reviewRating,
+    price,
+    rating,
     reviews,
-    totalReviews,
+    reviews_count,
     photo,
     checkIn,
     checkOut,
@@ -22,19 +22,19 @@ function HouseCard(props) {
   } = props.house
 
   return (
-    <Link to={`/houses/${houseId}`}>
+    <Link to={`/houses/${house_id}`}>
       <div className="block border rounded-md">
         <img src={photo} alt="House image" className="rounded-t" />
         <div className="p-3">
           {/* merge starts here */}
           <h5 className="font-bold">{location}</h5>
           <span className="text-sm">
-            {bedrooms} rooms • {bathrooms} bathrooms
+            {rooms} rooms • {bathrooms} bathrooms
           </span>
-          <h6 className="font-bold py-2">${priceNight}</h6>
+          <h6 className="font-bold py-2">${price}</h6>
           <div className="flex justify-between">
             <div className="flex">
-              {[...new Array(reviewRating)].map((i, index) => (
+              {[...new Array(rating)].map((i, index) => (
                 <FontAwesomeIcon
                   key={index}
                   icon={faStar}
@@ -42,7 +42,7 @@ function HouseCard(props) {
                 />
               ))}
             </div>
-            <p>{reviews || totalReviews}</p>
+            <p>{reviews || reviews_count}</p>
             {/* merge merge 2 here */}
           </div>
 
