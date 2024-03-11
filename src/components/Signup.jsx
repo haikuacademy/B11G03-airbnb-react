@@ -22,10 +22,10 @@ function Signup() {
   }
   //function to validate the password
   const validatePassword = (password) => {
-    if (password.lenght < 6) {
-      setValidPassword(true)
-    } else {
+    if (password.length < 6 || !password) {
       setValidPassword(false)
+    } else {
+      setValidPassword(true)
     }
   }
 
