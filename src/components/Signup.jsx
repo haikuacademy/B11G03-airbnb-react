@@ -9,6 +9,8 @@ function Signup() {
   const [validEmail, setValidEmail] = useState(true)
   const [validPassword, setValidPassword] = useState(true)
   const [error, setError] = useState('')
+
+  //navigation hook
   const navigate = useNavigate()
 
   //FORM
