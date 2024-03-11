@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+axios.defaults.withCredentials = true
 
 function Signup() {
   //STATE values
   const [validEmail, setValidEmail] = useState(true)
   const [validPassword, setValidPassword] = useState(true)
-  const [validPicture, setValidPicture] = useState(true)
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
+
   //FORM
   const submitForm = async (e) => {
     //prevent the form to be submited
@@ -13,8 +18,21 @@ function Signup() {
     //data from the form into an object
     let form = new FormData(e.target)
     let formObject = Object.fromEntries(form.entries())
-    console.log(formObject)
+    //POST request
+    const response = await axios.post(
+      'https://haiku-bnb.onrender.com/signup',
+      formObject
+    )
+    //sending back the response as an error otherwise navigate to home
+    if (response.data.error) {
+      setError(response.data.error)
+    } else if (response.data.error) {
+      setError(response.data.message)
+    } else {
+      navigate('/')
+    }
   }
+
   //VALIDATE EMAIL
   const validateEmail = (email) => {
     if ((email.includes('@') && email.includes('.')) || !email) {
@@ -30,27 +48,6 @@ function Signup() {
       setValidPassword(false)
     } else {
       setValidPassword(true)
-    }
-  }
-
-  //VALIDATE PICTURE
-  const validatePicture = (picture) => {
-    if (!picture) {
-      setValidPicture(false)
-      console.log('Please upload a profile picture')
-    }
-  }
-
-  //POST request
-  const newSignUp = async () => {
-    try {
-      let apiResponse = await axios.post(
-        'https://haiku-bnb.onrender.com/signup',
-        submitForm
-      )
-      axios.defaults.withCredentials = true
-    } catch (error) {
-      throw new Error(error.message)
     }
   }
 
@@ -108,26 +105,25 @@ function Signup() {
         />
 
         {/* Profile Picture */}
-        <label className="text-slate-500 text-sm">
-          Profile Picture
-          {!validPicture && (
-            <span className=" text-red-700 ml-3">
-              Profile Picture not valid
-            </span>
-          )}
-        </label>
+        <label className="text-slate-500 text-sm">Profile Picture</label>
         <input
           className="border rounded-md h-10 px-2"
           type="text"
           placeholder="https://..."
           name="picture"
-          onChange={(e) => validatePicture(e.target.src)}
         />
 
         {/* Submit button */}
         <button className="rounded-md bg-[#FB7185] text-white p-2 mt-4">
           Register
         </button>
+
+        {error && (
+          <span className=" text-center font-medium text-red-700 mb-3">
+            {' '}
+            {error}{' '}
+          </span>
+        )}
 
         <div className="text-xs ">
           Already have an account?{` `}
