@@ -66,10 +66,12 @@ function HouseCard(props) {
 
           {/* if is booking page */}
           {isbooking ? (
-            <div className="bg-green-200 border rounded-sm">
-              {' '}
-              {checkIn} {checkOut}
-              <div>
+            <div className=" flex-col justify-center  pt-2 pb-2 bg-green-100 border rounded-lg">
+              <div className=" text-center">
+                {' '}
+                {checkIn} - {checkOut}
+              </div>
+              <div className=" text-center font-bold">
                 {totalNights} Nights = ${totalPrice}
               </div>
             </div>
