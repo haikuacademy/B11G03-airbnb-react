@@ -2,19 +2,20 @@ import { useState } from 'react'
 import axios from 'axios'
 
 function Signup() {
-  //state values
+  //STATE values
   const [validEmail, setValidEmail] = useState(true)
   const [validPassword, setValidPassword] = useState(true)
-
-  //prevent the form to be submited
+  const [validPicture, setValidPicture] = useState(true)
+  //FORM
   const submitForm = async (e) => {
+    //prevent the form to be submited
     e.preventDefault()
+    //data from the form into an object
     let form = new FormData(e.target)
-    let formObject = Object.fromEntries(form.entries)
-    console.log(e.target.email.value)
-    console.log(e.target.password.value)
+    let formObject = Object.fromEntries(form.entries())
+    console.log(formObject)
   }
-  //function to validate the email
+  //VALIDATE EMAIL
   const validateEmail = (email) => {
     if ((email.includes('@') && email.includes('.')) || !email) {
       setValidEmail(true)
@@ -23,12 +24,33 @@ function Signup() {
       setValidEmail(false)
     }
   }
-  //function to validate the password
+  //VALIDATE PASSWORD
   const validatePassword = (password) => {
     if (password.length < 6 || !password) {
       setValidPassword(false)
     } else {
       setValidPassword(true)
+    }
+  }
+
+  //VALIDATE PICTURE
+  const validatePicture = (picture) => {
+    if (!picture) {
+      setValidPicture(false)
+      console.log('Please upload a profile picture')
+    }
+  }
+
+  //POST request
+  const newSignUp = async () => {
+    try {
+      let apiResponse = await axios.post(
+        'https://haiku-bnb.onrender.com/signup',
+        submitForm
+      )
+      axios.defaults.withCredentials = true
+    } catch (error) {
+      throw new Error(error.message)
     }
   }
 
@@ -43,15 +65,27 @@ function Signup() {
         </span>
         {/* First Name */}
         <label className="text-slate-500 text-sm">First Name</label>
-        <input className="border rounded-md h-10 px-2" type="text" />
+        <input
+          className="border rounded-md h-10 px-2"
+          type="text"
+          name="first_name"
+        />
 
         {/* Last Name */}
         <label className="text-slate-500 text-sm">Last Name</label>
-        <input className="border rounded-md h-10 px-2" type="text" />
+        <input
+          className="border rounded-md h-10 px-2"
+          type="text"
+          name="last_name"
+        />
 
         {/* Email */}
-        <label className="text-slate-500 text-sm">Email</label>
-        {!validEmail && <span className=" text-red-700">Invalid Email</span>}
+        <label className="text-slate-500 text-sm">
+          Email
+          {!validEmail && (
+            <span className=" text-red-700 ml-3">Invalid Email</span>
+          )}
+        </label>
         <input
           className="border rounded-md h-10 px-2"
           type="email"
@@ -60,10 +94,12 @@ function Signup() {
         />
 
         {/* Password */}
-        <label className="text-slate-500 text-sm">Password</label>
-        {!validPassword && (
-          <span className=" text-red-700">Password too short</span>
-        )}
+        <label className="text-slate-500 text-sm">
+          Password
+          {!validPassword && (
+            <span className=" text-red-700 ml-3">Password too short</span>
+          )}
+        </label>
         <input
           className="border rounded-md h-10 px-2"
           type="password"
@@ -72,11 +108,20 @@ function Signup() {
         />
 
         {/* Profile Picture */}
-        <label className="text-slate-500 text-sm">Profile Picture</label>
+        <label className="text-slate-500 text-sm">
+          Profile Picture
+          {!validPicture && (
+            <span className=" text-red-700 ml-3">
+              Profile Picture not valid
+            </span>
+          )}
+        </label>
         <input
           className="border rounded-md h-10 px-2"
           type="text"
           placeholder="https://..."
+          name="picture"
+          onChange={(e) => validatePicture(e.target.src)}
         />
 
         {/* Submit button */}
