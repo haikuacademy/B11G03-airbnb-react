@@ -6,7 +6,7 @@ function HouseCard(props) {
   const { isListing } = props
   const { isbooking } = props
   const {
-    houseId,
+    house_id,
     location,
     rooms,
     bathrooms,
@@ -14,7 +14,7 @@ function HouseCard(props) {
     reviewRating,
     reviews,
     totalReviews,
-    photoUrl,
+    photo,
     checkIn,
     checkOut,
     totalNights,
@@ -23,9 +23,9 @@ function HouseCard(props) {
   const rating = 5
 
   return (
-    <Link to={`/houses/${houseId}`}>
+    <Link to={`/houses/${house_id}`}>
       <div className="block border rounded-md">
-        <img src={photoUrl} alt="House image" className="rounded-t" />
+        <img src={photo} alt="House image" className="rounded-t" />
         <div className="p-3">
           {/* merge starts here */}
           <h5 className="font-bold">{location}</h5>
