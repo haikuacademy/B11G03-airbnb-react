@@ -15,7 +15,11 @@ function House() {
         const response = await axios.get(
           `https://haiku-bnb.onrender.com/houses/${id}`
         )
-        setHouse(response.data)
+        if (response.data) {
+          setHouse(response.data)
+        } else {
+          throw new Error('Failed to fetch house data')
+        }
       } catch (error) {
         throw new Error(
           'Error fetching houses: ' + (error.message ? error.message : error)
