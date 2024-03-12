@@ -49,7 +49,7 @@ function Reviews({ rating }) {
             {rating}
           </div>
         </p>
-        {reviews.map((review, index) => {
+        {reviews?.map((review, index) => {
           return <Review review={review} key={index} />
         })}
       </div>
