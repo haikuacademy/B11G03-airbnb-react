@@ -31,6 +31,8 @@ function Signup() {
     } else if (response.data.error) {
       setError(response.data.message)
     } else {
+      localStorage.setItem('isLoggedIn', true)
+
       navigate('/')
     }
   }

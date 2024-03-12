@@ -1,16 +1,71 @@
+import { useNavigate } from 'react-router-dom'
 import Nav from './Nav'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function Profile() {
-  const user = {
-    firstName: 'John',
-    lastName: 'Lopez',
-    email: 'john.lopez@gmail.com',
-    picture: 'https://randomuser.me/api/portraits/men/81.jpg'
-  }
-
+  //state
+  const [user, setUser] = useState({})
   const [picture, setPicture] = useState(user.picture)
   const [pictureInputValue, setPictureInputValue] = useState(user.picture)
+  const navigate = useNavigate()
+
+  //const logout missing
+
+  const getData = async () => {
+    try {
+      const response = await axios.get('https://haiku-bnb.onrender.com/profile')
+      console.log('userdata', response.data)
+      if (response.data.error) {
+        navigate('/')
+      } else {
+        setUser(response.data)
+        setPicture(response.data.picture)
+      }
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
+  const modifyUser = async (e) => {
+    e.preventDefault()
+
+    const form = new FormData(e.target)
+    const formObj = Object.fromEntries(form.entries())
+    console.log(formObj)
+
+    try {
+      const { data } = await axios.patch(
+        'https://haiku-bnb.onrender.com/profile',
+        formObj
+      )
+      console.log(data)
+      alert('changes saved')
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+
+  const logOut = async (e) => {
+    e.preventDefault()
+    try {
+      const { data } = await axios.get('https://haiku-bnb.onrender.com/logout')
+      console.log({ data })
+      localStorage.removeItem('isLoggedIn')
+      navigate('/')
+    } catch (e) {
+      alert(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  //emis login
+  //emi@haiku.com
+  //123123
+
   const handlePictureChange = (event) => {
     const newPicture = event.target.value
     setPictureInputValue(newPicture)
@@ -24,7 +79,7 @@ function Profile() {
 
       <div className="border-2 rounded p-4">
         <p className="text-xl mb-4 font-bold">Your Profile</p>
-        <form>
+        <form onSubmit={modifyUser}>
           <div className="flex gap-2 mb-4 items-center">
             <img
               src={picture}
@@ -32,6 +87,7 @@ function Profile() {
               className="w-20 rounded-full"
             />
             <input
+              name="picture"
               type="text"
               className="border rounded h-10 font-light p-2 w-full"
               value={pictureInputValue}
@@ -44,9 +100,10 @@ function Profile() {
               First Name
             </label>
             <input
+              name="first_name"
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
-              defaultValue={user.firstName}
+              defaultValue={user.first_name}
             />
           </div>
 
@@ -55,15 +112,17 @@ function Profile() {
               Last Name
             </label>
             <input
+              name="last_name"
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
-              defaultValue={user.lastName}
+              defaultValue={user.last_name}
             />
           </div>
 
           <div>
             <label className="text-sm font-light text-slate-500">Email</label>
             <input
+              name="email"
               type="email"
               className="border rounded font-light mb-4 p-2 w-full"
               defaultValue={user.email}
@@ -77,7 +136,11 @@ function Profile() {
             >
               Save Changes
             </button>
-            <button type="submit" className="rounded-md font-light border p-2 ">
+            <button
+              onClick={logOut}
+              type="submit"
+              className="rounded-md font-light border p-2 "
+            >
               Logout
             </button>
           </div>
