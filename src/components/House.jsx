@@ -18,8 +18,7 @@ function House() {
         setHouse(response.data)
       } catch (error) {
         throw new Error(
-          'Error fetching houses: ',
-          error.message ? error.message : error
+          'Error fetching houses: ' + (error.message ? error.message : error)
         )
       }
     }
