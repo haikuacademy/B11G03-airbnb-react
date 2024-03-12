@@ -19,7 +19,7 @@ function Houses() {
     <div className="container mx-auto">
       <Nav />
       {/* Importing flexbox for the search function from filters */}
-      <Filters />
+      <Filters setHouses={setHouses} />
       {/* Importing houses from HouseCard */}
       <div className="grid grid-cols-5 gap-3">
         {houses.map((house, index) => (

@@ -8,21 +8,21 @@ import {
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function Filters() {
+function Filters({ setHouses }) {
   const [locations, setLocations] = useState([])
 
-  const GetHouse = async () => {
+  // getting locations from db
+  const getLocations = async () => {
     try {
       const response = await axios.get(
         'https://haiku-bnb.onrender.com/locations'
       )
-      console.log('Response in filters.jsx: ', response.data)
 
       if (!response.error) {
         setLocations(response.data)
       }
     } catch (err) {
-      console.log(
+      alert(
         'Error in location fetching filters.jsx: ',
         err.message ? err.message : err
       )
@@ -30,12 +30,36 @@ function Filters() {
     }
   }
 
+  // subimt form for filters
+  const submitForm = async (e) => {
+    e.preventDefault()
+    try {
+      const form = new FormData(e.target)
+      const formObj = Object.fromEntries(form.entries())
+
+      // creating query request with form data
+      const { data } = await axios.get(
+        `https://haiku-bnb.onrender.com/houses?max_price=${formObj.max_price}&min_rooms=${formObj.min_rooms}&search=${formObj.search}&location=${formObj.location}&sort=${formObj.sort}`
+      )
+
+      if (data.error) {
+        alert('Error in filtering data: ', data.error)
+      } else {
+        // setting houses in Houses.jsx if there are no errors in the api call
+        setHouses(data)
+      }
+    } catch (err) {
+      alert('Error in filtering data: ', err.message ? err.message : err)
+    }
+  }
+
+  // loading locations list to display in filters form on page mount
   useEffect(() => {
-    GetHouse()
+    getLocations()
   }, [])
 
   return (
-    <form>
+    <form onSubmit={submitForm}>
       <div className="flex bg-slate-100 gap-2 h-14 p-2 justify-between rounded-md mb-3">
         {/* Location */}
         <div className="bg-white flex items-center rounded-md p-2 border-2 border-slate-200 w-[20%] gap-2 text-sm">
@@ -77,24 +101,25 @@ function Filters() {
         {/* Sort by */}
         <div className="bg-white flex items-center rounded-md p-2 border-2 border-slate-200 w-[20%] gap-2 text-sm">
           <FontAwesomeIcon icon={faSort} className="" />
-          <select type="select" class="w-full" className="sort">
+          <select type="select" className="w-full" name="sort">
             <option value="">sort by</option>
-            <option value="price_lowest">Lowest Price</option>
-            <option value="price_highest">Highest Price</option>
-            <option value="highest_rated">Highest Rated</option>
+            <option value="price">Price: low to high</option>
+            <option value="rooms">Rooms: high to low</option>
           </select>
         </div>
 
         {/* Keywords */}
         <div className="bg-white flex items-center rounded-md p-2 border-2 border-slate-200 w-[20%] gap-2 text-sm">
-          <input type="text" class="w-full" placeholder="keywords..." />
+          <input
+            name="search"
+            type="text"
+            class="w-full"
+            placeholder="keywords..."
+          />
         </div>
 
         {/* Submit button */}
-        <button
-          className="rounded-md bg-[#FB7185] text-white p-2 "
-          name="search"
-        >
+        <button className="rounded-md bg-[#FB7185] text-white p-2 ">
           Search
         </button>
       </div>
