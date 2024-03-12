@@ -8,8 +8,6 @@ import { useParams } from 'react-router-dom'
 function Reviews({ rating }) {
   const [reviews, setReviews] = useState([])
   const { id } = useParams()
-  const [ratings, setRatings] = useState(null)
-  const [hover, setHover] = useState(null)
   const [reviewSent, setReviewSent] = useState(false)
 
   // get all reviews for the house Id
@@ -34,7 +32,7 @@ function Reviews({ rating }) {
       const form = new FormData(e.target)
       const formObj = Object.fromEntries(form.entries())
       formObj.house_id = id
-      formObj.rating = ratings
+      formObj.rating = formObj.form_rating
       const { data } = await axios.post(
         `https://haiku-bnb.onrender.com/reviews`,
         formObj
@@ -89,28 +87,14 @@ function Reviews({ rating }) {
           <div className="border-2 rounded p-4">
             <form onSubmit={createReview}>
               <p className="text-m ">Leave a Review</p>
-              <div className="flex gap-[2px]">
-                {[...Array(5)].map((n, i) => {
-                  const ratingValue = i + 1
-                  return (
-                    <span key={i}>
-                      <FontAwesomeIcon
-                        icon={
-                          ratingValue <= (hover || ratings)
-                            ? solidFaStar
-                            : faStar
-                        }
-                        color="#FBBF24"
-                        onMouseEnter={() => setHover(ratingValue)}
-                        onMouseLeave={() => setHover(null)}
-                        onClick={() => setRatings(ratingValue)}
-                      />
-                    </span>
-                  )
-                })}
-                {ratings}
-              </div>
 
+              <div className="flex gap-1 py-2">
+                <input type="radio" value={1} name="form_rating" />
+                <input type="radio" value={2} name="form_rating" />
+                <input type="radio" value={3} name="form_rating" />
+                <input type="radio" value={4} name="form_rating" />
+                <input type="radio" value={5} name="form_rating" />
+              </div>
               <textarea
                 type="text"
                 name="content"
