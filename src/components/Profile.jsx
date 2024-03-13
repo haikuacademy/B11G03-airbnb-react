@@ -89,6 +89,7 @@ function Profile() {
               className="border rounded h-10 font-light p-2 w-full"
               value={pictureInputValue}
               onChange={handlePictureChange}
+              required
             />
           </div>
 
@@ -101,6 +102,7 @@ function Profile() {
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
               defaultValue={user.first_name}
+              required
             />
           </div>
 
@@ -113,6 +115,7 @@ function Profile() {
               type="text"
               className="border rounded font-light mb-4 p-2 w-full"
               defaultValue={user.last_name}
+              required
             />
           </div>
 
@@ -123,6 +126,7 @@ function Profile() {
               type="email"
               className="border rounded font-light mb-4 p-2 w-full"
               defaultValue={user.email}
+              required
             />
           </div>
 
@@ -141,7 +145,7 @@ function Profile() {
             <button
               onClick={logOut}
               type="submit"
-              className="rounded-md font-light border p-2 "
+              className="rounded-md font-light border p-2 hover:bg-slate-200 hover:border-slate-950 "
             >
               Logout
             </button>
