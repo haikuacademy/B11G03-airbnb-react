@@ -15,7 +15,6 @@ function Profile() {
   const getData = async () => {
     try {
       const response = await axios.get('https://haiku-bnb.onrender.com/profile')
-      console.log('userdata', response.data)
       if (response.data.error) {
         navigate('/')
       } else {
@@ -29,17 +28,13 @@ function Profile() {
   //update the user PATCH the new info to the API
   const updateUser = async (e) => {
     e.preventDefault()
-
     const form = new FormData(e.target)
     const formObj = Object.fromEntries(form.entries())
-    console.log(formObj)
-
     try {
       const { data } = await axios.patch(
         'https://haiku-bnb.onrender.com/profile',
         formObj
       )
-      console.log(data)
       //show a message to the user
       if (updateUser) {
         setChanges(true)
