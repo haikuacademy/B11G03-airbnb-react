@@ -1,5 +1,6 @@
 import HouseCard from './HouseCard'
 import Nav from './Nav'
+import axios from 'axios'
 
 function Listings() {
   // creating 1 house object
