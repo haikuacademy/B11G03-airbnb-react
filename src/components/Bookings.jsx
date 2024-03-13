@@ -7,52 +7,52 @@ function Bookings() {
   }
   const houses = [
     {
-      houseId: 1,
+      house_id: 1,
       location: 'Phuket, Thailand',
       rooms: 2,
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-      priceNight: 100,
+      price: 100,
       totalNights: 8,
       totalPrice: 800,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      houseId: 2,
+      house_id: 2,
       location: 'Bali, Indonesia',
       rooms: 2,
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-      priceNight: 120,
+      price: 120,
       totalNights: 7,
       totalPrice: 750,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      houseId: 3,
+      house_id: 3,
       location: 'koh Samui, Thailand',
       rooms: 2,
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-      priceNight: 120,
+      price: 120,
       totalNights: 7,
       totalPrice: 750,
       reviewRating: 4,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      houseId: 4,
+      house_id: 4,
       location: 'Goa, India',
       rooms: 56,
       bathrooms: 2,
@@ -60,25 +60,25 @@ function Bookings() {
       checkOut: '2024-03-20',
       totalReviews: 12,
       reviewRating: 4,
-      priceNight: 120,
+      price: 120,
       totalNights: 7,
       totalPrice: 500,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     },
     {
-      houseId: 5,
+      house_id: 5,
       location: 'Krabi, Thailand',
       rooms: 56,
       bathrooms: 2,
       checkIn: '2024-03-20',
       checkOut: '2024-03-20',
-      priceNight: 120,
+      price: 120,
       totalNights: 7,
       reviewRating: 4,
       totalPrice: 500,
       totalReviews: 12,
-      photoUrl:
+      photo:
         'https://res.cloudinary.com/dsko6ntfj/image/upload/v1640295026/portal/web%20development%20beginners/05%20Project%20Airbnb/house%2001/house_01_01.png'
     }
   ]

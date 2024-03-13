@@ -1,28 +1,9 @@
 import Gallery from './Gallery'
 import Nav from './Nav'
 import Reviews from './Reviews'
-import { useState, useEffect } from 'react'
+import Booking from './Booking'
 
 function House() {
-  const [startDate, setStartDate] = useState(null)
-  const [endDate, setEndDate] = useState(null)
-  const [nights, setNights] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
-
-  useEffect(() => {
-    if (startDate && endDate) {
-      let startDateInNumbers = new Date(startDate).getTime()
-      let endDateIntNumbers = new Date(endDate).getTime()
-
-      let diferenceInTime = endDateIntNumbers - startDateInNumbers
-      let diferenceInDays = Math.round(diferenceInTime / (1000 * 3600 * 24))
-
-      setNights(diferenceInDays)
-
-      setTotalPrice(diferenceInDays * house.price)
-    }
-  }, [startDate, endDate])
-
   const houseDescription =
     "Nestled on a serene beachfront, this charming Airbb house offers a picturesque escape. The exterior boasts a classic beach house aesthetic with weathered wood siding and a spacious wraparound deck, perfect for savoring the ocean breeze.Inside, you're greeted by an open-concept living area bathed in natural light, complemented by cozy furnishings and nautical accents. The house features three comfortable bedrooms, each with a unique coastal theme, and two modern bathrooms. The fully equipped kitchen opens to a dining area that's ideal for intimate meals or entertaining guests.Large glass doors in the living room lead to the deck, where you can enjoy stunning sunset views over the ocean.This idyllic retreat is a stone's throw away from the soft sandy beach, making it the perfect spot for beach lovers and those seeking a tranquil getaway."
   // Getting house data
@@ -97,45 +78,7 @@ function House() {
             ${house.price}{' '}
             <span className="text-gray-400 text-xs">/ night</span>
           </h6>
-          <form className="mt-3">
-            {/*check-in check-out*/}
-            <div className="xl:flex grid">
-              <div id="startDate">
-                <label className="text-gray-400 text-xs">Check In</label>
-                <input
-                  type="date"
-                  className="border rounded-md p-2 h-8 xl:m-0 m-2"
-                  onChange={(e) => setStartDate(e.target.value)}
-                />{' '}
-              </div>
-              <div id="endDate">
-                <label className="text-gray-400 text-xs">Check Out</label>
-                <input
-                  type="date"
-                  className="border rounded-md p-2 h-8 xl:m-0 m-1"
-                  onChange={(e) => setEndDate(e.target.value)}
-                />
-              </div>
-            </div>
-            {/*message to the host box*/}
-            <div className="mt-3">
-              <textarea
-                className="border p-2 w-full rounded-md"
-                placeholder="Please send a message to the host..."
-                rows="7"
-              ></textarea>
-            </div>
-            {/*total and reserve button*/}
-            <div className="flex justify-between items-center ">
-              <div>
-                {' '}
-                {nights} nights= <strong>$ {totalPrice}</strong>
-              </div>
-              <button className="p-2 bg-red-400 text-white text-center border rounded-lg">
-                Reserve
-              </button>
-            </div>
-          </form>
+          <Booking house={house} />
         </div>
       </div>
 
