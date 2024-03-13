@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import { format } from 'date-fns'
 
 function Booking({ house }) {
-  const [startDate, setStartDate] = useState(null)
+  const [startDate, setStartDate] = useState(new Date())
   const [endDate, setEndDate] = useState(null)
   const [nights, setNights] = useState(0)
+  const [error, setError] = useState(false)
   const [totalPrice, setTotalPrice] = useState(0)
   const [bookingId, setBookingId] = useState(false)
   const { id } = useParams()
@@ -15,13 +17,19 @@ function Booking({ house }) {
       let startDateInNumbers = new Date(startDate).getTime()
       let endDateIntNumbers = new Date(endDate).getTime()
 
+      if (startDateInNumbers > endDateIntNumbers) {
+        setError(true)
+        setTotalPrice(0)
+        setNights(0)
+        return
+      }
+
       let diferenceInTime = endDateIntNumbers - startDateInNumbers
       let diferenceInDays = Math.round(diferenceInTime / (1000 * 3600 * 24))
 
       setNights(diferenceInDays)
 
       setTotalPrice(diferenceInDays * house.price)
-      console.log('this i a house', house)
     }
   }, [startDate, endDate])
 
@@ -61,6 +69,7 @@ function Booking({ house }) {
               <input
                 name="from_date"
                 type="date"
+                min={format(new Date(), 'yyyy-MM-dd')}
                 className="border rounded-md p-2 h-8 xl:m-0 m-2"
                 onChange={(e) => setStartDate(e.target.value)}
               />{' '}
@@ -70,6 +79,7 @@ function Booking({ house }) {
               <input
                 name="to_date"
                 type="date"
+                min={format(startDate, 'yyyy-MM-dd')}
                 className="border rounded-md p-2 h-8 xl:m-0 m-1"
                 onChange={(e) => setEndDate(e.target.value)}
               />
@@ -90,7 +100,10 @@ function Booking({ house }) {
               {' '}
               {nights} nights= <strong>$ {totalPrice}</strong>
             </div>
-            <button className="p-2 bg-red-400 text-white text-center border rounded-lg">
+            <button
+              disabled={!totalPrice}
+              className="disabled:bg-gray-400 p-2 bg-red-400 text-white text-center border rounded-lg"
+            >
               Reserve
             </button>
           </div>
@@ -98,11 +111,12 @@ function Booking({ house }) {
       )}
       {/*confirmation message*/}
       {bookingId && (
-        <div className=" border  bg-green-100 text-center mt-4">
+        <div className=" border rounded-lg bg-green-100 text-center mt-6 pt-3 pb-3">
           THANK YOU FOR YOUR BOOKING!
         </div>
       )}
       {/*error message*/}
+      {error && <div>please select the correct date</div>}
     </div>
   )
 }
