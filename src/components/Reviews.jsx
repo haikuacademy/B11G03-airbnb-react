@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCommentDots, faStar } from '@fortawesome/free-regular-svg-icons'
+import { faStar as solidFaStar } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -7,7 +8,9 @@ import { useParams } from 'react-router-dom'
 function Reviews({ rating }) {
   const [reviews, setReviews] = useState([])
   const { id } = useParams()
+  const [reviewSent, setReviewSent] = useState(false)
 
+  // get all reviews for the house Id
   const getReviews = async () => {
     try {
       const { data } = await axios.get(
@@ -22,6 +25,31 @@ function Reviews({ rating }) {
     }
   }
 
+  // creating new review
+  const createReview = async (e) => {
+    e.preventDefault()
+    try {
+      const form = new FormData(e.target)
+      const formObj = Object.fromEntries(form.entries())
+      formObj.house_id = id
+      formObj.rating = formObj.form_rating
+      const { data } = await axios.post(
+        `https://haiku-bnb.onrender.com/reviews`,
+        formObj
+      )
+
+      if (data.error) {
+        alert('Error in posting review: ', data.error)
+      }
+      if (data.review_id) {
+        setReviewSent(true)
+      }
+    } catch (err) {
+      alert('Error in posting review: ', err)
+    }
+  }
+
+  // fetching reviews on page mount
   useEffect(() => {
     getReviews()
   }, [])
@@ -54,25 +82,43 @@ function Reviews({ rating }) {
         })}
       </div>
       {/* Leaving a Review Option */}
-      <div className="">
-        <div className="border-2 rounded p-4">
-          <p className="text-m ">Leave a Review</p>
-          <p className="text-sm m-2">⭐️ Rating</p>
-          <form>
-            <textarea
-              type="text"
-              placeholder="Please leave a review for this house..."
-              rows="6"
-              className="w-full border-2 rounded p-2"
-            />
-            <button
-              type="submit"
-              className="rounded-md bg-[#FB7185] text-white p-2 "
-            >
-              Submit Review
-            </button>
-          </form>
-        </div>
+      <div>
+        {!reviewSent ? (
+          <div className="border-2 rounded p-4">
+            <form onSubmit={createReview}>
+              <p className="text-m ">Leave a Review</p>
+
+              <div className="flex gap-1 py-2">
+                <input type="radio" value={1} name="form_rating" />
+                <input type="radio" value={2} name="form_rating" />
+                <input type="radio" value={3} name="form_rating" />
+                <input type="radio" value={4} name="form_rating" />
+                <input type="radio" value={5} name="form_rating" />
+              </div>
+              <textarea
+                type="text"
+                name="content"
+                placeholder="Please leave a review for this house..."
+                rows="6"
+                className="w-full border-2 rounded p-2"
+                required={true}
+              />
+              <button
+                type="submit"
+                className="rounded-md bg-[#FB7185] text-white p-2 "
+              >
+                Submit Review
+              </button>
+            </form>
+          </div>
+        ) : (
+          //  when review is sent, show thankyou message
+          <div className="bg-green-200 p-auto py-4 max-h-14 ">
+            <p className="items-center justify-center text-center">
+              Thank you for your review!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -100,7 +146,7 @@ function Review({ review }) {
       </div>
       {/* review star rating & review */}
       <p className="text-xs"> ⭐️{review.rating} Rating</p>
-      <p className="text-sm">{review.comment}</p>
+      <p className="text-sm">{review.content}</p>
     </div>
   )
 }
