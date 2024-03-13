@@ -8,10 +8,10 @@ function Profile() {
   const [user, setUser] = useState({})
   const [picture, setPicture] = useState(user.picture)
   const [pictureInputValue, setPictureInputValue] = useState(user.picture)
+  const [changes, setChanges] = useState(false)
   const navigate = useNavigate()
 
-  //const logout missing
-
+  //once logged in GET the data of the profile
   const getData = async () => {
     try {
       const response = await axios.get('https://haiku-bnb.onrender.com/profile')
@@ -26,8 +26,8 @@ function Profile() {
       alert(e.message)
     }
   }
-
-  const modifyUser = async (e) => {
+  //update the user PATCH the new info to the API
+  const updateUser = async (e) => {
     e.preventDefault()
 
     const form = new FormData(e.target)
@@ -40,12 +40,15 @@ function Profile() {
         formObj
       )
       console.log(data)
-      alert('changes saved')
+      //show a message to the user
+      if (updateUser) {
+        setChanges(true)
+      }
     } catch (e) {
       alert(e.message)
     }
   }
-
+  // LOG OUT
   const logOut = async (e) => {
     e.preventDefault()
     try {
@@ -62,10 +65,6 @@ function Profile() {
     getData()
   }, [])
 
-  //emis login
-  //emi@haiku.com
-  //123123
-
   const handlePictureChange = (event) => {
     const newPicture = event.target.value
     setPictureInputValue(newPicture)
@@ -75,15 +74,13 @@ function Profile() {
   return (
     <div className="container mx-auto">
       <Nav />
-      {/* Flexbox for profile pic and profile url */}
-
       <div className="border-2 rounded p-4">
         <p className="text-xl mb-4 font-bold">Your Profile</p>
-        <form onSubmit={modifyUser}>
+        <form onSubmit={updateUser}>
           <div className="flex gap-2 mb-4 items-center">
             <img
               src={picture}
-              alt="Guest review photo"
+              alt="Guest profile photo"
               className="w-20 rounded-full"
             />
             <input
@@ -136,6 +133,11 @@ function Profile() {
             >
               Save Changes
             </button>
+            {changes ? (
+              <span className=" text-center text-emerald-500">
+                Your changes has been saved!
+              </span>
+            ) : null}
             <button
               onClick={logOut}
               type="submit"
