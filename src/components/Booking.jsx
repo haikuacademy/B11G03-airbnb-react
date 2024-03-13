@@ -49,10 +49,7 @@ function Booking({ house }) {
         'https://haiku-bnb.onrender.com/bookings',
         formObject
       )
-      console.log('all the data', response.data)
-      console.log('inside form object', formObject)
       const bookingId = response.data.booking_id
-      console.log('THIS IS THE BOOKING ID', bookingId)
       setBookingId(bookingId)
     } catch (error) {
       console.error('booking error', error)
