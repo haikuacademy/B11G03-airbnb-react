@@ -105,7 +105,7 @@ function House() {
             {/*total and reserve button*/}
             <div className="flex justify-between items-center ">
               <div>
-                3 nights= <strong>${house.price ? house.price * 3 : ''}</strong>
+                3 nights= <strong>$360</strong>
               </div>
               <button className="p-2 bg-red-400 text-white text-center border rounded-lg">
                 Reserve
