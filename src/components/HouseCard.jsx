@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons'
 
 function HouseCard(props) {
   const { isListing } = props
@@ -42,10 +43,14 @@ function HouseCard(props) {
                 />
               ))}
             </div>
-            <p>{reviews || reviews_count}</p>
-            {/* merge merge 2 here */}
+            <p>
+              <FontAwesomeIcon
+                icon={faCommentDots}
+                className="text-[#94A3B8] mr-1"
+              />
+              {reviews || reviews_count}
+            </p>
           </div>
-
           {/* if is Listing page */}
           {isListing && (
             <div className="flex justify-start gap-2 mt-2">
