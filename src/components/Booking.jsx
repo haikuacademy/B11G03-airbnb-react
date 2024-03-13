@@ -22,6 +22,8 @@ function Booking({ house }) {
         setTotalPrice(0)
         setNights(0)
         return
+      } else {
+        setError(false)
       }
 
       let diferenceInTime = endDateIntNumbers - startDateInNumbers
@@ -92,6 +94,7 @@ function Booking({ house }) {
               className="border p-2 w-full rounded-md"
               placeholder="Please send a message to the host..."
               rows="7"
+              required
             ></textarea>
           </div>
           {/*total and reserve button*/}
@@ -107,6 +110,13 @@ function Booking({ house }) {
               Reserve
             </button>
           </div>
+
+          {/*error message*/}
+          {error && (
+            <div className=" text-center font-bold text-red-800 mt-4 mb-4">
+              Please select a valid date
+            </div>
+          )}
         </form>
       )}
       {/*confirmation message*/}
@@ -115,8 +125,6 @@ function Booking({ house }) {
           THANK YOU FOR YOUR BOOKING!
         </div>
       )}
-      {/*error message*/}
-      {error && <div>please select the correct date</div>}
     </div>
   )
 }
