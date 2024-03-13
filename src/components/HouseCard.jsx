@@ -10,17 +10,16 @@ function HouseCard(props) {
     location,
     rooms,
     bathrooms,
-    priceNight,
-    reviewRating,
+    price,
+    rating,
     reviews,
-    totalReviews,
+    reviews_count,
     photo,
     checkIn,
     checkOut,
     totalNights,
     totalPrice
   } = props.house
-  const rating = 5
 
   return (
     <Link to={`/houses/${house_id}`}>
@@ -32,7 +31,7 @@ function HouseCard(props) {
           <span className="text-sm">
             {rooms} rooms • {bathrooms} bathrooms
           </span>
-          <h6 className="font-bold py-2">${priceNight}</h6>
+          <h6 className="font-bold py-2">${price}</h6>
           <div className="flex justify-between">
             <div className="flex">
               {[...new Array(rating)].map((i, index) => (
@@ -43,7 +42,7 @@ function HouseCard(props) {
                 />
               ))}
             </div>
-            <p>{reviews || totalReviews}</p>
+            <p>{reviews || reviews_count}</p>
             {/* merge merge 2 here */}
           </div>
 
