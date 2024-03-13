@@ -146,7 +146,7 @@ function Review({ review }) {
       </div>
       {/* review star rating & review */}
       <p className="text-xs"> ⭐️{review.rating} Rating</p>
-      <p className="text-sm">{review.comment}</p>
+      <p className="text-sm">{review.content}</p>
     </div>
   )
 }
